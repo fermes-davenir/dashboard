@@ -1,5 +1,3 @@
-# App
-Please, write the README !
-
-## Rails template
-This app use the Bastien Robert Rails'template : [Bastien Robert](https://github.com/bastienrobert).
+# Dashboard
+## Fermes d'avenir
+Tableau de bord par Fermes d'avenir.
