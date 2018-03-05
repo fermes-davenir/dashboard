@@ -9,6 +9,8 @@ gem 'uglifier'
 gem 'turbolinks', '~> 5'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
+gem 'webpacker', '~> 3.2'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'sqlite3'
@@ -21,7 +23,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails-erd'
-  
+
   gem 'capistrano', '~> 3.4'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm', '~> 0.1.2'

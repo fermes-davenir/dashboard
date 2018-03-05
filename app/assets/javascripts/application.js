@@ -1,1 +1,1 @@
-//= require_tree .
+import Hello from './components/Hello.js'
