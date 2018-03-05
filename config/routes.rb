@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :planifications
   resources :possibilities
   resources :plants
   devise_for :users
