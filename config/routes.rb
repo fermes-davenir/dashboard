@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :possibilities
   resources :plants
   devise_for :users
   root to: 'application#home'
