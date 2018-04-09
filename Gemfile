@@ -12,6 +12,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'webpacker', '~> 3.2'
 gem 'pg'
 gem 'bootstrap-sass'
+gem 'rails_admin', '~> 1.3'
 
 group :development, :test do
   gem 'byebug', platform: :mri
