@@ -1,0 +1,42 @@
+<%= form_with(model: possibility, local: true) do |form| %>
+  <% if possibility.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(possibility.errors.count, "error") %> prohibited this possibility from being saved:</h2>
+
+      <ul>
+      <% possibility.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nursery_time %>
+    <%= form.number_field :nursery_time, id: :possibility_nursery_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seed_week %>
+    <%= form.number_field :seed_week, id: :possibility_seed_week %>
+  </div>
+
+  <div class="field">
+    <%= form.label :harvest_week %>
+    <%= form.number_field :harvest_week, id: :possibility_harvest_week %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :possibility_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :plant_id %>
+    <%= form.text_field :plant_id, id: :possibility_plant_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
