@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= meta_title + ' | ' + meta_product %></title>
     <meta name="description" content="<%= meta_description %>">
+    <%= favicon_link_tag "favicon.ico" %>
 
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>" />
@@ -24,10 +25,6 @@
 
 
     <!-- Apple touch -->
-    <%= favicon_link_tag "Icon-App-228x228@3x.png",
-                         rel: "apple-touch-icon",
-                         sizes: "228x228",
-                         type: "image/png" %>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
 
