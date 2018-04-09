@@ -10,10 +10,10 @@ gem 'turbolinks', '~> 5'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem 'webpacker', '~> 3.2'
+gem 'pg'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'sqlite3'
   gem 'rspec-rails'
 end
 
@@ -31,7 +31,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
