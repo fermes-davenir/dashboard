@@ -4,7 +4,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Tradfood
+module Dashboard
   class Application < Rails::Application
     # Load local_env.yml file - server vars
     config.before_configuration do
