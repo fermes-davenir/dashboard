@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 unless Rails.env.production?
-  User.create(email: "admin@admin.com", password: "adminpass", password_confirmation: "adminpass")
+  User.create(email: "admin@admin.com", password: "adminpass", password_confirmation: "adminpass", admin: true)
   puts "[SEEDS] Admin created"
 end
