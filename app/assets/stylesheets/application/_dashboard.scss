@@ -3,11 +3,6 @@
   margin: 1em 0 2em;
 }
 
-#btn-new-plantation {
-  text-align: center;
-  margin-bottom: 2em;
-}
-
 .container-fluid h1 {
 	color: $main-color;
 	text-transform: uppercase;
@@ -26,17 +21,15 @@
 	}
 }
 
-.dashboard-farm{
-	.dashboard-title{
-		text-align: left;
-		p.date{
-			color: $main-color;
-			text-align: right;
-		}
-	}
-	.dashboard-content{
+.dashboard-farm {
+	.dashboard-title p.date {
+		color: $main-color;
+		text-align: right;
+  }
+
+	.dashboard-content {
 		text-align: center;
-		h2{
+		h2 {
 			color: $main-color;
 			text-transform: uppercase;
 		}
@@ -55,7 +48,6 @@
       background-color: white;
       border: 1px solid $light-grey;
       box-shadow: 1px rgba(1, 1,1, 0.8);
-      margin-bottom: 20px;
 
       h3 {
         background-color: $light-grey;
@@ -68,14 +60,17 @@
       }
 
       .dash-plant {
-        text-align: left;
+        .row {
+          margin: 10px 0;
+        }
 
         .col-md-4 img {
-          width: 80px;
+          width: 75px;
         }
 
         h4 {
           color: $main-color;
+          text-align: left;
           text-transform: uppercase;
           font-size: 1em;
         }
@@ -85,9 +80,8 @@
 }
 
 button#btn-new-plantation {
-  margin: 0 auto;
-  position: relative;
-  display: inherit;
+  text-align: center;
+  margin-bottom: 2em;
 }
 
 img.delete-icon {
