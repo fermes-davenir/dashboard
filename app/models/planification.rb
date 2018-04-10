@@ -1,4 +1,4 @@
 class Planification < ApplicationRecord
   belongs_to :user
-  belongs_to :possibility
+  belongs_to :plant
 end

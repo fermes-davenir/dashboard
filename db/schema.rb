@@ -10,38 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305222041) do
+ActiveRecord::Schema.define(version: 2018_04_10_095843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "planifications", force: :cascade do |t|
     t.integer "year"
+    t.integer "seed_week"
     t.bigint "user_id"
-    t.bigint "possibility_id"
+    t.bigint "plant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["possibility_id"], name: "index_planifications_on_possibility_id"
+    t.index ["plant_id"], name: "index_planifications_on_plant_id"
     t.index ["user_id"], name: "index_planifications_on_user_id"
   end
 
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.json "image"
+    t.integer "growth_time"
+    t.integer "seed_from"
+    t.integer "seed_to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "possibilities", force: :cascade do |t|
-    t.integer "nursery_time"
-    t.integer "seed_week"
-    t.integer "harvest_week"
-    t.bigint "user_id"
-    t.bigint "plant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["plant_id"], name: "index_possibilities_on_plant_id"
-    t.index ["user_id"], name: "index_possibilities_on_user_id"
+    t.text "description"
+    t.text "tip"
+    t.string "more_link"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,17 +56,12 @@ ActiveRecord::Schema.define(version: 20180305222041) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "firstname"
-    t.string "lastname"
-    t.date "birthdate"
     t.boolean "admin", default: false, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "planifications", "possibilities"
+  add_foreign_key "planifications", "plants"
   add_foreign_key "planifications", "users"
-  add_foreign_key "possibilities", "plants"
-  add_foreign_key "possibilities", "users"
 end
