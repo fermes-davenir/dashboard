@@ -1,115 +1,95 @@
-<div class="scroll1">
-	<div class="titre-bouton">
-		<h1>
-			Le Tableau de Bord
-		</h1>
-		<h2>
-			Par Fermes d'Avenir
-		</h2>
-		<div class="baseline">
-			<p>
-				Faites germer l'avenir !
-			</p>
-		</div>
+<div class="cover">
+	<div class="main-title">
+		<h1>Le Tableau de Bord</h1>
+		<h2>Par Fermes d'Avenir</h2>
+		<div class="baseline">Faites germer l'avenir !</div>
 		<button type="button" class="btn btn_white">Gérer ma ferme</button>
 	</div>
 </div>
 
-<div class="container">
+<div class="container introduction">
 	<div class="row">
-		<div class="col-md-12 col-sm-12 col-xs-12 div-grise">
-			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 texte1">
-				<p class="titretxt">
+		<div class="col-md-12 col-sm-12 col-xs-12 grey">
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 block">
+				<p class="title">
 					Le tableau de bord qu'est-ce que c'est ?
-					<br>
 				</p>
-				<p class="sstitre">
+				<p class="subtitle">
 					Un outil qui vous accompagne dans la gestion de votre exploitation.</p>
-				<br>
-				<p class="para">
+				</p>
+				<p class="content">
 					« Tableau de Bord » est un outil développé en collaboration avec l’association Fermes d’Avenir. Cette association vise à répandre une nouvelle méthode d’agriculture comme la permaculture, basée sur le développement de petites exploitations. Néophytes
 					dans l’univers du maraîchage ou agriculteurs aguerris, cet outil vous permettra de composer vos paniers personnalisés avec des produits de saison. Il vous guidera tout au long du processus de croissance de vos plantes grâce au planning détaillé de
 					semis, plantation et récolte.
 				</p>
 			</div>
-			<div class="image2">
+			<div class="image">
 				<%= image_tag "application/homepage/image-site.png" %>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="container">
+<div class="container for-who">
 	<div class="row">
-		<div class="col-md-5 image3">
+		<div class="col-md-5 image">
 			<%= image_tag "application/homepage/agri.jpg" %>
 		</div>
-		<div class="col-lg-5 col-md-5 col-sm-10 col-xs-10 texte2">
-			<p class="titretxt2">
+		<div class="col-lg-5 col-md-5 col-sm-10 col-xs-10 block">
+			<p class="title">
 				Pour qui ?
-				<br>
 			</p>
-			<p class="para2">
+			<p class="content">
 				Cet outil s'adresse aussi bien aux propriétaires de micro-ferme qu'aux personnes disposées à en accueillir une (agriculteurs en devenir, collectivités locales, particuliers ...)
 			</p>
-			<div class="boutonins2">
-				<a href="/" class="btn btn_green">
-					Inscription
-				</a>
-			</div>
+			<a href="/" class="btn btn_green">
+				Inscription
+			</a>
 		</div>
 
 	</div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid how-it-works">
 	<div class="row row-centered">
-		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 basdepage">
-			<div class="ccmarche">
-				<p class="titrecc">
-					Comment ça marche ?
-				</p>
-				<p class="paracc">
+		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+			<div class="title">
+				<h3>Comment ça marche ?</h3>
+				<p>
 					Cet outil s'adresse aussi bien aux propriétaires de micro-ferme qu'aux personnes disposées à en accueillir une (agriculteurs en devenir, collectivités locales, particuliers ...)
 				</p>
 			</div>
-			<div class="lastpart">
+			<div class="steps">
 
-				<div class="col-xs-4 col-centered col-fixed plantation">
+				<div class="col-xs-4 col-centered col-fixed step">
 					<%= image_tag "application/homepage/champ.jpg" %>
-					<span class="num1">
+					<span class="number">
 						01
 					</span>
-					<span class="titrestep">
-						Plantez
-					</span>
-					<p class="step">
+					<h4>Plantez</h4>
+					<p>
 						Créez votre ferme étape par étape. Donnez lui un nom et sa localisation puis sélectionnez les plantes de votre choix.
 					</p>
 				</div>
 
-				<div class="col-xs-4 col-centered col-fixed paniers">
+				<div class="col-xs-4 col-centered col-fixed step">
 					<%= image_tag "application/homepage/gestionpaniers.jpg" %>
-					<span class="num2">
+					<span class="number">
 						02
 					</span>
-					<span class="titrestep">
-						Créez vos paniers
-					</span>
-					<p class="step">
+					<h4>Créez vos paniers</h4>
+					<p>
 						Réalisez et personnalisez vos plantations une par et ainsi vous pourrez créer vos paniers semaine par semaine.
 					</p>
 
 				</div>
 
-				<div class="col-xs-4 col-centered col-fixed planning">
+				<div class="col-xs-4 col-centered col-fixed step">
 					<%= image_tag "application/homepage/planner.jpg" %>
-					<span class="num3">
+					<span class="number">
 						03
 					</span>
-					<span class="titrestep">
-						Organisez-vous
-					</span>
-					<p class="step">
+					<h4>Organisez-vous</h4>
+					<p>
 						Visualisez sur toute l’année les plantations et les récoltes que vous allez devoir faire grâce au calendrier.
 					</p>
 				</div>

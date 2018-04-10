@@ -44,6 +44,16 @@
     color: $main-color;
 		border-color: $main-color;
   }
+  &_white {
+    color: #a2a2a2;
+    background-color: #fff;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #000;
+    &:hover {
+      background-color: $light-grey;
+    }
+  }
 }
 .btn_green.btn_stroke {
   color: #7FC79D;

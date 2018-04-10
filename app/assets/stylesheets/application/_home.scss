@@ -1,13 +1,12 @@
-.scroll1 {
+.cover {
 	background-size: cover;
 	height: 500px;
 	background-repeat: no-repeat;
 	background-position: 0 70%;
-	background-image: image-url('application/homepage/fond-scroll1.jpg');
+	background-image: image-url('application/homepage/cover.jpg');
 	width: 100%;
 	display: table;
 	overflow: hidden;
-
 	&:before {
 		content: "";
 		background-color: #409377;
@@ -18,40 +17,9 @@
 		display: block;
 		z-index: 1;
 	}
-
-	.btn {
-		z-index: 1;
-		display: inline-block;
-		padding: 0.9em 1.4em 1em;
-		font-size: 14px;
-		line-height: 1.2;
-		font-weight: 900;
-		text-align: center;
-		text-transform: uppercase;
-		background: 0 0;
-		border-radius: 0;
-		cursor: pointer;
-		overflow: hidden;
-		transition: all 0.3s ease-in-out;
-		vertical-align: middle;
-		border: 1px solid transparent;
-		white-space: nowrap;
-	}
-
-	.btn_white {
-		color: #a2a2a2;
-		background-color: #fff;
-		font-weight: 400;
-		letter-spacing: 0.08em;
-		color: #000;
-
-		&:hover {
-			background-color: $light-grey;
-		}
-	}
 }
 
-.titre-bouton {
+.main-title {
 	text-transform: uppercase;
 	text-align: center;
 	color: #fff !important;
@@ -67,7 +35,6 @@
 		font-weight: 600;
 		font-size: 2.8em;
 	}
-
 	h2 {
 		text-align: center;
 		font-weight: 500;
@@ -76,205 +43,127 @@
 		margin-top: 0;
 		margin-bottom: 30px;
 	}
-
 	.baseline {
 		margin-bottom: 30px;
 	}
 }
 
-.div-grise {
-	background-color: #F3F3F3;
-	margin: 0 auto;
-	height: auto;
-	margin-top: -40px;
-	z-index: 8;
-	padding-bottom: 40px;
-}
-
-.texte1 {
-	margin: 0 auto;
-	color: #555;
-	height: auto;
-}
-
-.titretxt {
-	margin-top: 40px;
-	text-transform: uppercase;
-	font-weight: bold;
-	line-height: 40px;
-}
-
-.sstitre {
-	font-weight: bold;
-}
-
-.para {}
-
-.image2 {
-	overflow: auto;
-
-	img {
-		width: 42%;
+.introduction {
+	.block {
+		margin: 0 auto;
+		color: #555;
 		height: auto;
-		text-align: right;
-		position: absolute;
-		right: 0px;
-		transform: translateX(-20px);
-		border-radius: 5px;
-		margin-top: 2%;
-		-webkit-box-shadow: 1px 1px 21px 0 rgba(50, 50, 50, 0.25);
-		-moz-box-shadow: 1px 1px 21px 0 rgba(50, 50, 50, 0.25);
-		box-shadow: 1px 1px 21px 0 rgba(50, 50, 50, 0.25);
 	}
-}
-
-.image3 {
-	margin-top: 70px;
-	height: auto;
-
-	img {
-		width: 100%;
-		margin-left: -20px;
+	.grey {
+		background-color: #F3F3F3;
+		margin: 0 auto;
+		height: auto;
+		margin-top: -40px;
+		z-index: 8;
+		padding-bottom: 40px;
 	}
-}
-
-.boutonins2 {
-	margin-top: 30px;
-	margin-left: 25px;
-	position: relative;
-
-	.btn {
-		z-index: 1;
-		padding: 0.9em 1.4em 1em;
-		font-size: 14px;
-		line-height: 1.2;
-		font-weight: 900;
-		text-align: center;
+	.title {
+		margin-top: 40px;
 		text-transform: uppercase;
-		background: 0 0;
-		border-radius: 0;
-		cursor: pointer;
-		overflow: hidden;
-		transition: all 0.3s ease-in-out;
-		vertical-align: middle;
-		border: 1px solid transparent;
-		white-space: nowrap;
-		position: relative;
+		font-weight: bold;
+		line-height: 40px;
 	}
 
-	.btn_green {
-		color: #fff;
-		background-color: #7FC79D;
+	.subtitle {
+		font-weight: bold;
+	}
+
+	.image {
+		overflow: auto;
+		img {
+			width: 42%;
+			height: auto;
+			text-align: right;
+			position: absolute;
+			right: 0px;
+			transform: translateX(-20px);
+			border-radius: 5px;
+			margin-top: 2%;
+			-webkit-box-shadow: 1px 1px 21px 0 rgba(50, 50, 50, 0.25);
+			-moz-box-shadow: 1px 1px 21px 0 rgba(50, 50, 50, 0.25);
+			box-shadow: 1px 1px 21px 0 rgba(50, 50, 50, 0.25);
+		}
 	}
 }
 
-.texte2 {
-	color: #555;
-	height: auto;
-	margin-top: 100px;
-	width: 500px;
+.for-who {
+	.block {
+		color: #555;
+		height: auto;
+		margin-top: 100px;
+		width: 500px;
+		margin-left: 25px;
+	}
+	.image {
+		margin-top: 70px;
+		height: auto;
+		img {
+			width: 100%;
+			transform: translateX(-20px);
+		}
+	}
+	.title {
+		margin-top: 40px;
+		text-transform: uppercase;
+		font-weight: bold;
+		line-height: 40px;
+	}
+	.btn {
+		margin-top: 20px;
+	}
 }
 
-.titretxt2 {
-	margin-top: 40px;
-	text-transform: uppercase;
-	font-weight: bold;
-	margin-left: 24px;
-	line-height: 40px;
-}
-
-.para2 {
-	margin-left: 25px;
-}
-
-.basdepage {
+.how-it-works {
 	background-color: #F3F3F3;
 	width: 100%;
 	height: auto;
 	margin-top: 80px;
 	padding-bottom: 80px;
 
-	.ccmarche {
+	.title {
 		text-align: center;
 		color: #555;
 		width: 500px;
 		margin: 50px auto;
-
-		.titrecc {
+		h3 {
 			text-transform: uppercase;
 			font-weight: bold;
 		}
-
-		.paracc {}
 	}
 
-	.lastpart {
+	.steps {
 		text-align: center;
 		width: 100%;
 		margin-top: 50px;
 		color: #555;
-
-		.titrestep {
-			text-transform: uppercase;
-			font-weight: bold;
-		}
-
-		.step {}
-
 		.row-centered {
 			text-align: center;
 		}
-
 		.col-centered {
 			display: inline-block;
 			float: none;
 			text-align: left;
 			margin-right: -4px;
 		}
-
 		.col-fixed {
 			width: 320px;
 		}
-
-		.plantation {
-			img {
-				width: 250px;
-				border-radius: 5px;
-			}
-
-			.num1 {
-				font-family: 'Montserrat',sans-serif;
-				font-size: 60px;
-				color: #e9e6e6;
+		.step {
+			h4 {
+				display: inline-block;
+				text-transform: uppercase;
 				font-weight: bold;
-				z-index: 1;
-				position: relative;
 			}
-		}
-
-		.paniers {
 			img {
 				width: 250px;
 				border-radius: 5px;
 			}
-
-			.num2 {
-				font-family: 'Montserrat',sans-serif;
-				font-size: 60px;
-				color: #e9e6e6;
-				font-weight: bold;
-				z-index: 1;
-				position: relative;
-			}
-		}
-
-		.planning {
-			img {
-				width: 250px;
-				border-radius: 5px;
-			}
-
-			.num3 {
+			.number {
 				font-family: 'Montserrat',sans-serif;
 				font-size: 60px;
 				color: #e9e6e6;
@@ -286,42 +175,28 @@
 	}
 }
 
-.cellfooter {
-	line-height: auto;
-	white-space: nowrap;
-	font-size: 0.7em;
-	line-height: 45px;
-	@media (min-width: $md-small) {
-		display: table-cell;
-		vertical-align: middle;
-		float: none;
-		text-align: center;
-	}
-	@media (max-width: $md-small) {
-		text-align: center;
-	}
-}
 @media screen and (max-width: 992px) {
-	.image2 img {
+	.introduction img {
 		display: none;
 	}
 }
 @media screen and (max-width: 507px) {
-	.basdepage .ccmarche {
+	.how-it-works .title {
 		width: auto;
 	}
 }
 @media screen and (max-width: 486px) {
-	.image3 img {
-		width: 300px;
-	}
-
-	.texte2 {
-		width: auto;
+	.for-who {
+		img {
+			width: 300px;
+		}
+		.block {
+			width: auto;
+		}
 	}
 }
 @media screen and (max-width:1200px) {
-	.texte2 {
+	.for-who .block {
 		margin-top: 0;
 	}
 }
