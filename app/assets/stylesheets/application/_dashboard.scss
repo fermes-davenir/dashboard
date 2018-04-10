@@ -3,34 +3,12 @@
   margin: 1em 0 2em;
 }
 
-.container-fluid h1 {
-	color: $main-color;
-	text-transform: uppercase;
-	font-weight: 400;
-	font-size: 1.9em;
-	margin-top: 50px;
-
-	&:after {
-		content: "";
-		background-color: $main-color;
-		height: 4px;
-		width: 100px;
-		position: relative;
-		display: block;
-		margin-top: 10px;
-	}
-}
-
 .dashboard-farm {
-	.dashboard-title p.date {
-		color: $main-color;
-		text-align: right;
-  }
-
 	.dashboard-content {
 		text-align: center;
 		h2 {
 			color: $main-color;
+      font-weight: normal;
 			text-transform: uppercase;
 		}
 	}

@@ -1,29 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
 
-<h1>Plants</h1>
+  <h1>Liste des plantes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="plants-container">
     <% @plants.each do |plant| %>
-      <tr>
-        <td><%= plant.name %></td>
-        <td><%= plant.image %></td>
-        <td><%= link_to 'Show', plant %></td>
-        <td><%= link_to 'Edit', edit_plant_path(plant) %></td>
-        <td><%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="plant">
+      <%= plant.name %>
+    </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
-
-<%= link_to 'New Plant', new_plant_path %>
+</div>
