@@ -33,8 +33,10 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render partial: 'layouts/partials/header' %>
-    <%= yield %>
+    <section class="content">
+      <%= render partial: 'layouts/partials/header' %>
+      <%= yield %>
+    </section>
     <%= render partial: 'layouts/partials/footer' %>
     <%= javascript_pack_tag 'application' %>
   </body>

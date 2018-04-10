@@ -1,0 +1,99 @@
+#notice {
+  color: #63b987;
+  margin: 1em 0 2em;
+}
+
+#btn-new-plantation {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.container-fluid h1 {
+	color: $main-color;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 1.9em;
+	margin-top: 50px;
+
+	&:after {
+		content: "";
+		background-color: $main-color;
+		height: 4px;
+		width: 100px;
+		position: relative;
+		display: block;
+		margin-top: 10px;
+	}
+}
+
+.dashboard-farm{
+	.dashboard-title{
+		text-align: left;
+		p.date{
+			color: $main-color;
+			text-align: right;
+		}
+	}
+	.dashboard-content{
+		text-align: center;
+		h2{
+			color: $main-color;
+			text-transform: uppercase;
+		}
+	}
+
+  .wrapper {
+    margin: 60px 0px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    .wrapper-card {
+      width: 32%;
+      min-width: 250px;
+      background-color: white;
+      border: 1px solid $light-grey;
+      box-shadow: 1px rgba(1, 1,1, 0.8);
+      margin-bottom: 20px;
+
+      h3 {
+        background-color: $light-grey;
+        padding: 10px;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        font-weight: 500;
+        margin: 0 0 10px 0;
+        width: 100%;
+      }
+
+      .dash-plant {
+        text-align: left;
+
+        .col-md-4 img {
+          width: 80px;
+        }
+
+        h4 {
+          color: $main-color;
+          text-transform: uppercase;
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+
+button#btn-new-plantation {
+  margin: 0 auto;
+  position: relative;
+  display: inherit;
+}
+
+img.delete-icon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 2em;
+  top: 9px;
+}
