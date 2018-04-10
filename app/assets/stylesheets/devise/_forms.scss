@@ -1,132 +1,59 @@
-.row {
-  .actions {
-    .button-validation {
-      margin-bottom: 50px;
-      position: relative;
-      background-color: $main-color;
-      font-weight: 400;
-      letter-spacing: 0.09em;
-      border: none;
-      padding: 15px 33px;
-      display: inline-block;
-
-      &:hover {
-        background-color: $dark-green;
-      }
-    }
-
-    .no-margin {
-      margin-bottom: 0;
-    }
-
-    .button-validation-middle {
-      display: inherit;
-    }
-
-    .button-back {
-      position: relative;
-      background-color: $mid-grey;
-      font-weight: 400;
-      letter-spacing: 0.09em;
-      border: none;
-      padding: 15px 33px;
-      display: inline-block;
-
-      &:hover {
-        background-color: $dark-grey;
-      }
-    }
-
-    .button-delete-farm {
-      position: relative;
-      background-color: #e86767;
-      color: #fff;
-      margin: 30px 0 0;
-      padding: 15px 33px;
-      display: block;
-      border: none;
-      font-weight: 400;
-      letter-spacing: 0.09em;
-
-      &:hover {
-        background-color: #e65151;
-      }
-    }
-
-    #back-button {
-      right: 15em;
-    }
-  }
-}
-
 form {
   text-align: left;
   position: relative;
-
-  h2 {
-    text-align: center;
-    margin: 0 0 30px;
-  }
-
   .field {
     margin-top: 20px;
   }
-
   .form-btn {
     width: 400px;
     background: $main-color;
     color: #fff;
     padding: 10px 0;
-
     &:hover {
       background: $main-color-darker;
       color: #fff;
     }
   }
-
-  .input-form {
-    margin: 0 auto;
-    width: 100%;
-
-    &:focus {
-      border: 1px solid $main-color;
-      box-shadow: none;
-    }
-  }
 }
-
 .container-center {
   position: relative;
   padding: 2em;
 }
-
 .form-content {
   text-align: center;
   background-color: rgba(255,255,255,0.93);
   padding: 40px 50px;
   display: inline-block;
-
+  box-shadow: $boxshadow;
+  border-radius: 15px;
+  h2 {
+    text-transform: uppercase;
+    color: $main-color;
+  }
   label {
     display: inline-block;
     font-weight: 400;
   }
-
   .actions {
     width: auto;
   }
-
   .input-form {
     margin: 0 auto;
     background-color: #fff;
-    border: 1px solid $mid-grey;
     outline: none;
-    padding: 5px 10px;
-
-    &:focus {
-      border: 1px solid $main-color;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    background-color: rgba($mid-grey, .3);
+    border-radius: 15px;
+    color: $white;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    &::placeholder {
+      color: $white;
     }
   }
-
   .btn {
     margin: 20px auto;
     border: none;
@@ -136,12 +63,10 @@ form {
     color: white;
     font-weight: 500;
     letter-spacing: 0.08em;
-
     &:hover {
       background-color: $dark-green;
     }
   }
-
   h2 {
     margin-top: 0;
     margin-bottom: 40px;
@@ -151,7 +76,6 @@ form {
     width: 100%;
   }
 }
-
 .ninja-input {
   display: none;
   font-size: 30px;
@@ -160,24 +84,20 @@ form {
   line-height: 1.1;
   color: inherit;
 }
-
 .page {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.93);
   padding: 40px 50px;
   display: inline-block;
   margin-top: 130px;
-
   #user_email {
     width: 100%;
     padding: 5px 10px;
   }
 }
-
 .modif {
   margin-bottom: 20px;
   margin-top: 10px;
-
   .btn_green {
     width: 100%;
     padding: 10px 16px;

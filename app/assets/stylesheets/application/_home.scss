@@ -61,6 +61,8 @@
 		margin-top: -40px;
 		z-index: 8;
 		padding-bottom: 40px;
+		border-radius: 20px;
+		box-shadow: $boxshadow;
 	}
 	.title {
 		margin-top: 40px;
@@ -82,11 +84,8 @@
 			position: absolute;
 			right: 0px;
 			transform: translateX(-20px);
-			border-radius: 5px;
+			border-radius: 20px;
 			margin-top: 2%;
-			-webkit-box-shadow: 1px 1px 21px 0 rgba(50, 50, 50, 0.25);
-			-moz-box-shadow: 1px 1px 21px 0 rgba(50, 50, 50, 0.25);
-			box-shadow: 1px 1px 21px 0 rgba(50, 50, 50, 0.25);
 		}
 	}
 }
@@ -105,6 +104,8 @@
 		img {
 			width: 100%;
 			transform: translateX(-20px);
+			box-shadow: $boxshadow;
+			border-radius: 20px;
 		}
 	}
 	.title {
@@ -161,7 +162,8 @@
 			}
 			img {
 				width: 250px;
-				border-radius: 5px;
+				border-radius: 15px;
+				box-shadow: $boxshadow;
 			}
 			.number {
 				font-family: 'Montserrat',sans-serif;

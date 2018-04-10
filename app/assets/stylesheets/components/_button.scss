@@ -1,7 +1,7 @@
 .btn {
   z-index: 1;
   display: inline-block;
-  padding: .9em 1.4em 1em;
+  padding: .8em 1.5em;
   font-size: 14px;
   line-height: 1.2;
   font-weight: 900;
@@ -11,8 +11,11 @@
   cursor: pointer;
   overflow: hidden;
   transition: all .3s ease-in-out;
-  &:focus{
-    outline:none;
+  border-radius: 30px;
+  box-shadow: $boxshadow;
+  &:focus,
+  &:hover {
+    outline: none;
   }
   &:before {
     content:"";
@@ -45,12 +48,12 @@
 		border-color: $main-color;
   }
   &_white {
-    color: #a2a2a2;
-    background-color: #fff;
+    color: $main-color;
+    background-color: $white;
     font-weight: 400;
     letter-spacing: 0.08em;
-    color: #000;
     &:hover {
+      color: $main-color;
       background-color: $light-grey;
     }
   }

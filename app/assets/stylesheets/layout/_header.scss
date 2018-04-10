@@ -1,5 +1,5 @@
 header {
-	background-color: $white;
+	background-color: $main-color;
 	.row {
 		display: flex;
     justify-content: center;
@@ -8,7 +8,7 @@ header {
 		min-height: 100px;
 	}
 	img {
-		width: 100px;
+		width: 70px;
 		height: auto;
 	}
 	.header-logo,
@@ -23,6 +23,9 @@ header {
 	.header-links {
 		flex: 0 1 auto;
 		margin-left: auto;
+		a:first-child {
+			margin-right: 2em;
+		}
 	}
 	@media screen and (max-width: 740px) {
 		.header-logo {

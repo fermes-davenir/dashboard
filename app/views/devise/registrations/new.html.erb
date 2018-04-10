@@ -11,21 +11,14 @@
           <%= devise_error_messages! %>
 
           <div class="field">
-            <%= f.label :email %><br/>
             <%= f.email_field :email, class:"input-form",:placeholder => "mail@domain.com" %>
           </div>
 
           <div class="field">
-            <%= f.label :password, "Mot de passe" %>
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %>
-                caractères minimum)</em>
-            <% end %><br/>
             <%= f.password_field :password, autocomplete: "off", class:"input-form",:placeholder => "Mot de passe" %>
           </div>
 
           <div class="field">
-            <%= f.label :password_confirmation, "Confirmation du mot de passe" %><br/>
             <%= f.password_field :password_confirmation, autocomplete: "off", class:"input-form",:placeholder => "Confirmez mot de passe" %>
           </div>
 
