@@ -1,0 +1,73 @@
+.plants-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: auto;
+
+  .plant {
+    width: 175px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    margin:0 10px 30px;
+    transition-property: border-color, box-shadow;
+    transition-duration: .25s;
+
+    .plant-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      padding: 20px 0 10px;
+      .info-btn {
+        background-color: #bbb;
+        border: none;
+        border-radius: 50%;
+        width: 1.45em;
+        height: 1.45em;
+        font-size: 0.75em;
+        color: white;
+        text-align: center;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        transition-property: background-color;
+        transition-duration: .25s;
+      }
+
+      img {
+        width: 150px;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+
+      p {
+        color: #aaa;
+        font-size: 1.2em;
+        font-weight: bold;
+        transition-property: color;
+        transition-duration: .25s;
+      }
+    }
+
+    &:hover {
+      border-color: $main-color;
+      box-shadow: 1px 1px 15px 0 rgba(50, 50, 50, 0.25);
+
+      .plant-content {
+        .info-btn {
+          background-color: #999;
+        }
+
+        p {
+          color: #888;
+        }
+      }
+    }
+
+  }
+}

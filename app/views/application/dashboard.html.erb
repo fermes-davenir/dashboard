@@ -2,7 +2,9 @@
 
   <div class="row">
       <h1>Mon Tableau de Bord</h1>
+      <% if !notice.blank? %>
       <p id="notice"><%= notice %></p>
+      <% end %>
   </div>
 
   <div class="row">

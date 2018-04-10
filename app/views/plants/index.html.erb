@@ -5,7 +5,11 @@
   <div class="plants-container">
     <% @plants.each do |plant| %>
     <div class="plant">
-      <%= plant.name %>
+      <%= link_to plant, class: "plant-content" do %>
+      <div class="info-btn">i</div>
+      <%= image_tag plant.image.url %>
+      <p><%= plant.name %></p>
+      <% end %>
     </div>
     <% end %>
   </div>
