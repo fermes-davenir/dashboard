@@ -6,8 +6,8 @@
       </a>
       <div class="header-links">
         <% if current_user %>
-          <%= link_to "Ma ferme", edit_farm_path(@farm), class:"btn btn_green" unless current_user.farm.nil? %>
-          <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"btn btn_green" %>
+          <%= link_to "Admin Dashboard", rails_admin_path, class:"btn btn_green" if current_user.admin %>
+          <%= link_to "Se déconnecter", destroy_user_session_path, class: "btn btn_green" %>
         <% else %>
           <%= link_to "Se connecter", new_user_session_path, class:"btn btn_green" %>
           <%= link_to "S'inscrire", new_user_registration_path, class:"btn btn_green" %>
