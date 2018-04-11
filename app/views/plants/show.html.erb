@@ -10,5 +10,18 @@
   <%= @plant.image %>
 </p>
 
+<table id="grow" data-plant="12-15" data-harvest="12">
+  <% (0..@weeks_count/11).each do |i| %>
+    <tr>
+      <% (1..11).each do |j| %>
+        <% week_number = i*11+j %>
+        <% if week_number <= @weeks_count %>
+          <td data-week="<%= week_number %>"><%= week_number %></td>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
 <%= link_to 'Edit', edit_plant_path(@plant) %> |
 <%= link_to 'Back', plants_path %>

@@ -6,9 +6,9 @@
     <% @plants.each do |plant| %>
     <div class="plant">
       <%= link_to plant, class: "plant-content" do %>
-      <div class="info-btn">i</div>
-      <%= image_tag plant.image.url %>
-      <p><%= plant.name %></p>
+        <div class="info-btn">i</div>
+        <!-- image_tag plant.image.url -->
+        <p><%= plant.name %></p>
       <% end %>
     </div>
     <% end %>

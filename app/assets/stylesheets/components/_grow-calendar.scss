@@ -1,0 +1,25 @@
+#grow {
+  td {
+    display: inline-block;
+    background-color: $grey-light;
+    //color: $mid-grey;
+    border-radius: 5px;
+    margin: 2px 2px 0 2px;
+    padding: 10px;
+    min-width: 20px;
+    text-align: center;
+    transition: background-color .2s;
+    box-sizing: content-box;
+    cursor: default;
+    &.plant {
+      background-color: $mint-green;
+      cursor: pointer;
+    }
+    &.harvest {
+      background-color: $dark-green;
+    }
+    &.duration {
+      background-color: $light-green;
+    }
+  }
+}

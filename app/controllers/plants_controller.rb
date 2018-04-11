@@ -1,5 +1,6 @@
 class PlantsController < ApplicationController
   before_action :set_plant, only: [:show, :edit, :update, :destroy]
+  include PlantsHelper
 
   # GET /plants
   # GET /plants.json
@@ -10,6 +11,7 @@ class PlantsController < ApplicationController
   # GET /plants/1
   # GET /plants/1.json
   def show
+    @weeks_count = weeks_count(Date.today.year)
   end
 
   # GET /plants/new
