@@ -1,63 +1,39 @@
 class PlanificationsController < ApplicationController
-  before_action :set_planification, only: [:show, :edit, :update, :destroy]
+  before_action :set_planification, only: [:show, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :check_owner, only: [:update, :destroy]
 
-  # GET /planifications
-  # GET /planifications.json
-  def index
-    @planifications = Planification.all
-  end
-
-  # GET /planifications/1
-  # GET /planifications/1.json
-  def show
-  end
-
-  # GET /planifications/new
-  def new
-    @planification = Planification.new
-  end
-
-  # GET /planifications/1/edit
-  def edit
-  end
-
-  # POST /planifications
   # POST /planifications.json
   def create
     @planification = Planification.new(planification_params)
+    @planification.user = current_user
+    @planification.year = Date.today.year
 
     respond_to do |format|
       if @planification.save
-        format.html { redirect_to @planification, notice: 'Planification was successfully created.' }
-        format.json { render :show, status: :created, location: @planification }
+        format.json { render json: { status: :created } }
       else
-        format.html { render :new }
         format.json { render json: @planification.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /planifications/1
   # PATCH/PUT /planifications/1.json
   def update
     respond_to do |format|
       if @planification.update(planification_params)
-        format.html { redirect_to @planification, notice: 'Planification was successfully updated.' }
-        format.json { render :show, status: :ok, location: @planification }
+        format.json { render json: { status: :updated } }
       else
-        format.html { render :edit }
         format.json { render json: @planification.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /planifications/1
   # DELETE /planifications/1.json
   def destroy
     @planification.destroy
     respond_to do |format|
-      format.html { redirect_to planifications_url, notice: 'Planification was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json { render json: { status: :deleted } }
     end
   end
 
@@ -69,6 +45,10 @@ class PlanificationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def planification_params
-      params.require(:planification).permit(:year, :user_id, :possibility_id)
+      params.require(:planification).permit(:plant_id, :seed_week)
+    end
+
+    def check_owner
+      redirect_to root_path if @planification.user != current_user
     end
 end

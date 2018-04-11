@@ -26,9 +26,15 @@ class Grow {
     this.table.addEventListener('mouseover', (e) => {
       let week = e.target.dataset.week
       if (week >= this.plantation[0] && week <= this.plantation[1]) {
-        this.harvestColorization(parseInt(e.target.dataset.week))
+        this.harvestColorization(parseInt(week))
       } else {
         this.engine()
+      }
+    })
+    this.table.addEventListener('click', (e) => {
+      let week = e.target.dataset.week
+      if (week >= this.plantation[0] && week <= this.plantation[1]) {
+        this.setPlanification(parseInt(week))
       }
     })
     this.table.addEventListener('mouseleave', () => {
@@ -56,6 +62,25 @@ class Grow {
     }
     tds[(from-1)%this.weeks].classList = 'plant'
     tds[(from+this.duration-1)%this.weeks].classList = 'harvest'
+  }
+  setPlanification(week) {
+    let path = document.location.pathname
+    let plant_id = parseInt(path.substring(path.lastIndexOf("/") + 1))
+
+    let xhr = new XMLHttpRequest()
+    let params = "planification[plant_id]="+plant_id+"&planification[seed_week]="+week
+
+    xhr.open("POST", "/planifications.json", true)
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    xhr.setRequestHeader("X-CSRF-Token", document.querySelector('meta[name="csrf-token"]').content)
+    
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          console.log(JSON.parse(xhr.responseText));
+      }
+    }
+
+    xhr.send(params);
   }
 }
 

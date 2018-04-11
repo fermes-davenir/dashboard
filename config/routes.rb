@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root to: 'application#home'
 
   resources :plants
+  resources :planifications, only: [:create]
+
   get '/dashboard/(:week)' => 'application#dashboard', as: :dashboard
   get '/calendar' => 'application#calendar'
 
