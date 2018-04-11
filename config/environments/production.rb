@@ -1,4 +1,7 @@
 Rails.application.configure do
+  # Store files on Amazon S3.
+  config.active_storage.service = :amazon
+  
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
 
@@ -91,7 +94,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # Store files on Amazon S3.
-  config.active_storage.service = :amazon
 end
