@@ -19,10 +19,10 @@
     display: inline-block;
     margin: 3em 0;
     text-align: left;
-    box-shadow: $boxshadow;
+    box-shadow: $soft-boxshadow;
     background-color: $white;
     border-radius: 15px;
-    padding: 1em;
+    padding: 1.5em;
   }
   .tip {
     position: relative;
