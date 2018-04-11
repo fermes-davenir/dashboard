@@ -6,12 +6,18 @@
 .dashboard-farm {
 	.dashboard-content {
 		text-align: center;
-		h2 {
+
+    h2 {
 			color: $main-color;
       font-weight: normal;
 			text-transform: uppercase;
       margin-top: 0;
 		}
+
+    .days-interval {
+      color: $dark-grey;
+      font-size: 1.25em;
+    }
 	}
 
   .wrapper {
@@ -26,29 +32,34 @@
       min-width: 250px;
       background-color: white;
       border: 1px solid $light-grey;
-      box-shadow: 1px rgba(1, 1,1, 0.8);
+      box-shadow: $boxshadow;
+      border-radius: 20px;
 
       h3 {
-        background-color: $light-grey;
+        color: $main-color;
         padding: 10px;
         text-transform: uppercase;
-        font-size: 0.9em;
+        font-size: 1em;
         font-weight: 500;
-        margin: 0 0 10px 0;
+        margin: 5px 0 10px 0;
         width: 100%;
       }
 
       .dash-plant {
         .row {
-          margin: 10px 0;
+          margin: 10px auto;
+          padding: 10px;
+          width: 90%;
+          border: 2px solid $main-color;
+          border-radius: 20px;
         }
 
         .col-md-4 img {
-          width: 75px;
+          width: 50px;
         }
 
         h4 {
-          color: $main-color;
+          color: $dark-grey;
           text-align: left;
           text-transform: uppercase;
           font-size: 1em;
