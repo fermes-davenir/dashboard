@@ -31,6 +31,9 @@ class Grow {
         this.engine()
       }
     })
+    this.table.addEventListener('mouseleave', () => {
+      this.engine()
+    })
   }
   harvestColorization(from) {
     let tds = this.table.getElementsByTagName('td')

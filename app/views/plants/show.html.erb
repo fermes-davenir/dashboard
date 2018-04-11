@@ -7,10 +7,10 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @plant.image %>
+  <%= image_tag url_for(@plant.image) if @plant.image.attached? %>
 </p>
 
-<table id="grow" data-plant="12-15" data-harvest="12">
+<table id="grow" data-plant="<%= "#{@plant.seed_from}-#{@plant.seed_to}" %>" data-harvest="<%= @plant.growth_time %>">
   <% (0..@weeks_count/11).each do |i| %>
     <tr>
       <% (1..11).each do |j| %>
