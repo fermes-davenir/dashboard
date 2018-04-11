@@ -8,11 +8,12 @@ gem 'puma'
 gem 'uglifier'
 gem 'turbolinks', '~> 5'
 gem 'devise'
-gem 'carrierwave', '~> 1.0'
 gem 'webpacker', '~> 3.2'
 gem 'pg'
 gem 'bootstrap-sass'
-gem 'rails_admin', '~> 1.3'
+gem 'rails_admin', github: 'dtcristo/rails_admin', branch: 'active_storage'
+gem "aws-sdk-s3", require: false
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platform: :mri

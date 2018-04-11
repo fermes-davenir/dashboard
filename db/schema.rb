@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2018_04_10_122818) do
 
   create_table "plants", force: :cascade do |t|
     t.string "name"
-    t.json "image"
     t.integer "growth_time"
     t.integer "seed_from"
     t.integer "seed_to"
