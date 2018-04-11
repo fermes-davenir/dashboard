@@ -1,12 +1,21 @@
 <header>
   <div class="container">
     <div class="col-lg-12 header row">
-      <a href="/" class="header-logo">
-        <%= image_tag "logo.svg" %>
-      </a>
+      <div class="header-links">
+        <% if current_user %>
+          <%= link_to "Tableau de Bord", dashboard_path, class:"btn btn_white" %>
+          <%= link_to "Les plantes", plants_path, class: "btn btn_white" %>
+        <% end %>
+      </div>
+      <div class="header-logo">
+        <%= link_to root_path do %>
+          <%= image_tag "logo.svg" %>
+        <% end %>
+      </div>
       <div class="header-links">
         <% if current_user %>
           <%= link_to "Admin Dashboard", rails_admin_path, class:"btn btn_white" if current_user.admin %>
+          <%= link_to "Mon profil", edit_user_registration_path, class: "btn btn_white" %>
           <%= link_to "Se déconnecter", destroy_user_session_path, class: "btn btn_white" %>
         <% else %>
           <%= link_to "Se connecter", new_user_session_path, class:"btn btn_white" %>

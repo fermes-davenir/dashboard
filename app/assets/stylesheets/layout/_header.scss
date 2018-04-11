@@ -2,7 +2,7 @@ header {
 	background-color: $main-color;
 	.row {
 		display: flex;
-    justify-content: center;
+    justify-content: space-around;
 		align-items: center;
     position: relative;
 		min-height: 100px;
@@ -11,35 +11,14 @@ header {
 		width: 70px;
 		height: auto;
 	}
-	.header-logo,
+
 	.header-links {
-		display: inline-block;
-	}
-	.header-logo {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-35%);
-	}
-	.header-links {
-		flex: 0 1 auto;
-		margin-left: auto;
-		a:first-child {
-			margin-right: 2em;
-		}
-	}
-	@media screen and (max-width: 740px) {
-		.header-logo {
-			position: relative;
-			transform: none;
-			left: 0;
-		}
-	}
-	@media screen and (max-width: 430px) {
-		.header-links a {
-			display: block;
-			&:first-child {
-				margin-bottom: 5px;
-			}
+		flex-grow: 1;
+    flex-basis: 0;
+		text-align: center;
+
+		a {
+				margin: 5px 1em;
 		}
 	}
 }
