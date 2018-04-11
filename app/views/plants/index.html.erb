@@ -7,7 +7,7 @@
     <div class="plant">
       <%= link_to plant, class: "plant-content" do %>
         <div class="info-btn">i</div>
-        <!-- image_tag plant.image.url -->
+        <%= image_tag url_for(plant.image) if plant.image.attached? %>
         <p><%= plant.name %></p>
       <% end %>
     </div>
