@@ -7,8 +7,7 @@
     <div class="col-sm-1"></div>
   </div>
   <div class="row content">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8">
+    <div class="col-sm-6 col-sm-offset-3">
       <div class="container-fluid">
         <div class="row">
           <h1><%= @plant.name %></h1>
@@ -19,9 +18,11 @@
             <%= link_to 'EN SAVOIR PLUS', @plant.more_link, class: 'btn btn_green', target: '_blank' %>
           </div>
           <div class="col-sm-2"></div>
-          <div class="col-sm-4 tip">
-            <%= @plant.tip %>
-          </div>
+          <% if @plant.tip.nil? %>
+            <div class="col-sm-4 tip">
+              <%= @plant.tip %>
+            </div>
+          <% end %>
         </div>
         <div class="row calendar">
           <table id="grow" data-plant="<%= "#{@plant.seed_from}-#{@plant.seed_to}" %>" data-harvest="<%= @plant.growth_time %>">
@@ -48,6 +49,5 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-2"></div>
   </div>
 </div>
