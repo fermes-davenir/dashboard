@@ -18,8 +18,8 @@ class Grow {
       tds[j].classList = ''
     }
     for(let i = this.plantation[0]; i <= this.plantation[1]; i++) {
-      tds[i-1].classList = 'plant'
-      tds[i-1+this.duration].classList = 'harvest'
+      tds[(i-1)%this.weeks].classList = 'plant'
+      tds[(i-1+this.duration)%this.weeks].classList = 'harvest'
     }
   }
   events() {
@@ -38,14 +38,24 @@ class Grow {
   harvestColorization(from) {
     let tds = this.table.getElementsByTagName('td')
     for (let i = 0; i < tds.length; i++) {
-      if (i >= from && i < from+this.duration-1) {
-        tds[i].classList = 'duration'
+      if (from > (from+this.duration)%this.weeks) {
+        // Winter is coming
+        if (i >= from%this.weeks || i < (from+this.duration)%this.weeks) {
+          tds[i%this.weeks].classList = 'duration'
+        } else {
+          tds[i].classList = ''
+        }
       } else {
-        tds[i].classList = ''
+        // Same year
+        if (i >= from%this.weeks && i < (from+this.duration)%this.weeks) {
+          tds[i%this.weeks].classList = 'duration'
+        } else {
+          tds[i].classList = ''
+        }
       }
     }
-    tds[from-1].classList = 'plant'
-    tds[from+this.duration-1].classList = 'harvest'
+    tds[(from-1)%this.weeks].classList = 'plant'
+    tds[(from+this.duration-1)%this.weeks].classList = 'harvest'
   }
 }
 
