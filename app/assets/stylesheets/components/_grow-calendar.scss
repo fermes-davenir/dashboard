@@ -2,7 +2,7 @@
   td {
     display: inline-block;
     background-color: $grey-light;
-    //color: $mid-grey;
+    color: $dark-grey;
     border-radius: 5px;
     margin: 2px 2px 0 2px;
     padding: 10px;
@@ -20,6 +20,38 @@
     }
     &.duration {
       background-color: $light-green;
+    }
+    &:hover {
+      span {
+        display: block;
+      }
+    }
+    span {
+      position: absolute;
+      display: none;
+      background-image: url('icons/bubble.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center 100%;
+      border-top-right-radius: 20px;
+      border-top-left-radius: 20px;
+      color: $mint-green;
+      transform: translate(-45%, -110%);
+      box-sizing: border-box;
+      padding: .8em 1em 2.35em;
+      b {
+        display: block;
+      }
+/*       &:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, 100%);
+  background-color: $dark-grey;
+} */
     }
   }
 }
