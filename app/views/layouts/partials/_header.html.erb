@@ -3,8 +3,8 @@
     <div class="col-lg-12 header row">
       <div class="header-links">
         <% if current_user %>
-          <%= link_to "Tableau de Bord", dashboard_path, class:"btn btn_white" %>
-          <%= link_to "Les plantes", plants_path, class: "btn btn_white" %>
+          <%= link_to "Tableau de Bord", dashboard_path %>
+          <%= link_to "Les plantes", plants_path %>
         <% end %>
       </div>
       <div class="header-logo">
@@ -14,12 +14,12 @@
       </div>
       <div class="header-links">
         <% if current_user %>
-          <%= link_to "Admin Dashboard", rails_admin_path, class:"btn btn_white" if current_user.admin %>
-          <%= link_to "Mon profil", edit_user_registration_path, class: "btn btn_white" %>
-          <%= link_to "Se déconnecter", destroy_user_session_path, class: "btn btn_white" %>
+          <%= link_to "Admin Dashboard", rails_admin_path if current_user.admin %>
+          <%= link_to "Mon profil", edit_user_registration_path %>
+          <%= link_to "Se déconnecter", destroy_user_session_path %>
         <% else %>
-          <%= link_to "Se connecter", new_user_session_path, class:"btn btn_white" %>
-          <%= link_to "S'inscrire", new_user_registration_path, class:"btn btn_white" %>
+          <%= link_to "Se connecter", new_user_session_path %>
+          <%= link_to "S'inscrire", new_user_registration_path %>
         <% end %>
       </div>
     </div>
