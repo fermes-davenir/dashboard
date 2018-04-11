@@ -1,36 +1,53 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @plant.name %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag url_for(@plant.image) if @plant.image.attached? %>
-</p>
-
-<table id="grow" data-plant="<%= "#{@plant.seed_from}-#{@plant.seed_to}" %>" data-harvest="<%= @plant.growth_time %>">
-  <% (0..@weeks_count/11).each do |i| %>
-    <tr>
-      <% (1..11).each do |j| %>
-        <% week_number = i*11+j %>
-        <% if week_number <= @weeks_count %>
-          <td data-week="<%= week_number %>" <%= "data-seed" if week_number >= @plant.seed_from && week_number <= @plant.seed_to %>>
-            <span>
-              du <%= Date.commercial(2018, week_number, 1).strftime('%d/%m/%Y') %>
-              au <%= Date.commercial(2018, week_number, 7).strftime('%d/%m/%Y') %>
-              <% if week_number >= @plant.seed_from && week_number <= @plant.seed_to %>
-                <b>Cliquez pour planter</b>
-              <% end %>
-            </span>
-            <%= week_number %>
-          </td>
-        <% end %>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
-
-<%= link_to 'Edit', edit_plant_path(@plant) %> |
-<%= link_to 'Back', plants_path %>
+<div class="container plants-show">
+  <div class="row cover">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <%= image_tag url_for(@plant.background) %>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+  <div class="row content">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="container-fluid">
+        <div class="row">
+          <h1><%= @plant.name %></h1>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= @plant.description %>
+            <button class="btn btn_green">EN SAVOIR PLUS</button>
+          </div>
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4 tip">
+            <%= @plant.tip %>
+          </div>
+        </div>
+        <div class="row calendar">
+          <table id="grow" data-plant="<%= "#{@plant.seed_from}-#{@plant.seed_to}" %>" data-harvest="<%= @plant.growth_time %>">
+            <% (0..@weeks_count/11).each do |i| %>
+              <tr>
+                <% (1..11).each do |j| %>
+                  <% week_number = i*11+j %>
+                  <% if week_number <= @weeks_count %>
+                    <td data-week="<%= week_number %>" <%= "data-seed" if week_number >= @plant.seed_from && week_number <= @plant.seed_to %>>
+                      <span>
+                        du <%= Date.commercial(2018, week_number, 1).strftime('%d/%m/%Y') %>
+                        au <%= Date.commercial(2018, week_number, 7).strftime('%d/%m/%Y') %>
+                        <% if week_number >= @plant.seed_from && week_number <= @plant.seed_to %>
+                          <b>Cliquez pour planter</b>
+                        <% end %>
+                      </span>
+                      <%= week_number %>
+                    </td>
+                  <% end %>
+                <% end %>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>

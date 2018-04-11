@@ -1,98 +1,100 @@
-<div class="cover">
-	<div class="main-title">
-		<h1>Le Tableau de Bord</h1>
-		<h2>Par Fermes d'Avenir</h2>
-		<div class="baseline">Faites germer l'avenir !</div>
-		<%= link_to dashboard_path do %>
-			<button type="button" class="btn btn_green">Gérer ma ferme</button>
-		<% end %>
+<section id="home">
+	<div class="cover">
+		<div class="main-title">
+			<h1>Le Tableau de Bord</h1>
+			<h2>Par Fermes d'Avenir</h2>
+			<div class="baseline">Faites germer l'avenir !</div>
+			<%= link_to dashboard_path do %>
+				<button type="button" class="btn btn_green">Gérer ma ferme</button>
+			<% end %>
+		</div>
 	</div>
-</div>
 
-<div class="container introduction">
-	<div class="row">
-		<div class="col-md-12 col-sm-12 col-xs-12 grey">
-			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 block">
+	<div class="container introduction">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 grey">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 block">
+					<p class="title">
+						Le tableau de bord qu'est-ce que c'est ?
+					</p>
+					<p class="subtitle">
+						Un outil qui vous accompagne dans la gestion de votre exploitation.</p>
+					</p>
+					<p class="content">
+						« Tableau de Bord » est un outil développé en collaboration avec l’association Fermes d’Avenir. Cette association vise à répandre une nouvelle méthode d’agriculture comme la permaculture, basée sur le développement de petites exploitations. Néophytes dans l’univers du maraîchage ou agriculteurs aguerris, cet outil vous guidera tout au long du processus de croissance de vos plantes grâce au planning détaillé plantation et récolte.
+					</p>
+				</div>
+				<div class="image">
+					<%= image_tag "application/homepage/image-site.png" %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container for-who">
+		<div class="row">
+			<div class="col-md-5 image">
+				<%= image_tag "application/homepage/agri.jpg" %>
+			</div>
+			<div class="col-lg-5 col-md-5 col-sm-10 col-xs-10 block">
 				<p class="title">
-					Le tableau de bord qu'est-ce que c'est ?
-				</p>
-				<p class="subtitle">
-					Un outil qui vous accompagne dans la gestion de votre exploitation.</p>
+					Pour qui ?
 				</p>
 				<p class="content">
-					« Tableau de Bord » est un outil développé en collaboration avec l’association Fermes d’Avenir. Cette association vise à répandre une nouvelle méthode d’agriculture comme la permaculture, basée sur le développement de petites exploitations. Néophytes dans l’univers du maraîchage ou agriculteurs aguerris, cet outil vous guidera tout au long du processus de croissance de vos plantes grâce au planning détaillé plantation et récolte.
-				</p>
-			</div>
-			<div class="image">
-				<%= image_tag "application/homepage/image-site.png" %>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="container for-who">
-	<div class="row">
-		<div class="col-md-5 image">
-			<%= image_tag "application/homepage/agri.jpg" %>
-		</div>
-		<div class="col-lg-5 col-md-5 col-sm-10 col-xs-10 block">
-			<p class="title">
-				Pour qui ?
-			</p>
-			<p class="content">
-				Cet outil s'adresse aussi bien aux propriétaires de micro-ferme qu'aux personnes disposées à en accueillir une (agriculteurs en devenir, collectivités locales, particuliers ...)
-			</p>
-			<a href="/" class="btn btn_green">
-				Inscription
-			</a>
-		</div>
-
-	</div>
-</div>
-<div class="container-fluid how-it-works">
-	<div class="row row-centered">
-		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-			<div class="title">
-				<h3>Comment ça marche ?</h3>
-				<p>
 					Cet outil s'adresse aussi bien aux propriétaires de micro-ferme qu'aux personnes disposées à en accueillir une (agriculteurs en devenir, collectivités locales, particuliers ...)
 				</p>
+				<a href="/" class="btn btn_green">
+					Inscription
+				</a>
 			</div>
-			<div class="steps">
 
-				<div class="col-xs-4 col-centered col-fixed step">
-					<%= image_tag "application/homepage/inscription.jpg" %>
-					<span class="number">
-						01
-					</span>
-					<h4>Inscrivez-vous</h4>
+		</div>
+	</div>
+	<div class="container-fluid how-it-works">
+		<div class="row row-centered">
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+				<div class="title">
+					<h3>Comment ça marche ?</h3>
 					<p>
-						Créez votre espace personnel qui vous permettra de vous identifier et de retrouver toutes vos plantations tout au long de l’année.
+						Cet outil s'adresse aussi bien aux propriétaires de micro-ferme qu'aux personnes disposées à en accueillir une (agriculteurs en devenir, collectivités locales, particuliers ...)
 					</p>
 				</div>
+				<div class="steps">
 
-				<div class="col-xs-4 col-centered col-fixed step">
-					<%= image_tag "application/homepage/champ.jpg" %>
-					<span class="number">
-						02
-					</span>
-					<h4>Plantez</h4>
-					<p>
-						Créez votre ferme étape par étape. Donnez lui un nom et sa localisation puis sélectionnez les plantes de votre choix.
-					</p>
-				</div>
+					<div class="col-xs-4 col-centered col-fixed step">
+						<%= image_tag "application/homepage/inscription.jpg" %>
+						<span class="number">
+							01
+						</span>
+						<h4>Inscrivez-vous</h4>
+						<p>
+							Créez votre espace personnel qui vous permettra de vous identifier et de retrouver toutes vos plantations tout au long de l’année.
+						</p>
+					</div>
 
-				<div class="col-xs-4 col-centered col-fixed step">
-					<%= image_tag "application/homepage/planner.jpg" %>
-					<span class="number">
-						03
-					</span>
-					<h4>Organisez-vous</h4>
-					<p>
-						Visualisez sur toute l’année les plantations et les récoltes que vous allez devoir faire grâce au calendrier.
-					</p>
+					<div class="col-xs-4 col-centered col-fixed step">
+						<%= image_tag "application/homepage/champ.jpg" %>
+						<span class="number">
+							02
+						</span>
+						<h4>Plantez</h4>
+						<p>
+							Créez votre ferme étape par étape. Donnez lui un nom et sa localisation puis sélectionnez les plantes de votre choix.
+						</p>
+					</div>
+
+					<div class="col-xs-4 col-centered col-fixed step">
+						<%= image_tag "application/homepage/planner.jpg" %>
+						<span class="number">
+							03
+						</span>
+						<h4>Organisez-vous</h4>
+						<p>
+							Visualisez sur toute l’année les plantations et les récoltes que vous allez devoir faire grâce au calendrier.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</section>

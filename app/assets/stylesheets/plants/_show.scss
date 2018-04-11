@@ -1,0 +1,45 @@
+.plants-show {
+  h1 {
+    color: $dark-grey;
+    text-align: left;
+  }
+  .cover img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  .content .btn {
+    display: block;
+    margin-top: 3em;
+  }
+  .calendar {
+    text-align: center;
+  }
+  #grow {
+    display: inline-block;
+    margin: 3em 0;
+    text-align: left;
+    box-shadow: $boxshadow;
+    background-color: $white;
+    border-radius: 15px;
+    padding: 1em;
+  }
+  .tip {
+    position: relative;
+    background: $mint-green;
+    padding: 1.5em;
+    color: $white;
+    border-radius: 20px;
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      right: 0;
+      height: 18px;
+      width: 18px;
+      transform: translate(-100%, 100%);
+      background: $mint-green;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+  }
+}

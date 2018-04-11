@@ -1,4 +1,5 @@
 #grow {
+  user-select: none;
   td {
     display: inline-block;
     background-color: $grey-light;
@@ -39,8 +40,12 @@
       transform: translate(-45%, -110%);
       box-sizing: border-box;
       padding: .8em 1em 2.35em;
+      transition: opacity .2s;
       b {
         display: block;
+      }
+      &:hover {
+        display: none;
       }
 /*       &:after {
   position: absolute;
