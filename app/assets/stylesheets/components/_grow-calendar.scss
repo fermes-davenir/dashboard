@@ -1,5 +1,12 @@
-#grow {
+.growing-planning {
   user-select: none;
+  display: inline-block;
+  margin: 3em 0;
+  text-align: left;
+  box-shadow: $soft-boxshadow;
+  background-color: $white;
+  border-radius: 15px;
+  padding: 1.5em;
   td {
     display: inline-block;
     background-color: $grey-light;

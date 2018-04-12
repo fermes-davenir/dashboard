@@ -3,7 +3,9 @@ import Modal from './Modal'
 class PlanificationDelete {
   constructor() {
     this.container = document.getElementById('dashboard')
-    this.container =! null ? this.events() : null
+    if (this.container) {
+      this.events()
+    }
   }
   events() {
     let planifications = this.container.getElementsByClassName('planification')

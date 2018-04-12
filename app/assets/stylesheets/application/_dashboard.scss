@@ -39,12 +39,12 @@
       background-color: $main-color;
       span {
         display: block;
-        width: 25px;
-        height: 25px;
+        width: 17px;
+        height: 17px;
         background-image: image-url('icons/back.svg');
         background-size: contain;
         background-repeat: no-repeat;
-        transform: translateX(-2px);
+        transform: translateX(-1px);
       }
       &.next {
         transform: rotate(180deg);
@@ -106,15 +106,16 @@
   }
 }
 
-button#btn-new-plantation {
+#btn-new-plantation {
   text-align: center;
   margin-bottom: 2em;
 }
 
-img.delete-icon {
+.delete-icon {
   width: 16px;
   height: 16px;
   position: absolute;
   right: 2em;
   top: 9px;
+  cursor: pointer;
 }

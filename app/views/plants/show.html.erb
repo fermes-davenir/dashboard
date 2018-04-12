@@ -25,7 +25,7 @@
           <% end %>
         </div>
         <div class="row calendar">
-          <table id="grow" data-plant="<%= "#{@plant.seed_from}-#{@plant.seed_to}" %>" data-harvest="<%= @plant.growth_time %>">
+          <table id="grow" class="growing-planning" data-plant="<%= "#{@plant.seed_from}-#{@plant.seed_to}" %>" data-harvest="<%= @plant.growth_time %>">
             <% (0..@weeks_count/11).each do |i| %>
               <tr>
                 <% (1..11).each do |j| %>
