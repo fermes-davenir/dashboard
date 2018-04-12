@@ -4,12 +4,13 @@ class Grow {
   constructor() {
     this.table = document.getElementById('grow')
     this.weeks = 52
-    this.plant = document.getElementById('plant').dataset.id
+    this.plant
     this.duration
     this.plantation
     this.table != null ? this.generator() : null
   }
   generator() {
+    this.plant = document.getElementById('plant').dataset.id
     this.events()
     this.engine()
   }
@@ -68,8 +69,6 @@ class Grow {
     tds[(from+this.duration-1)%this.weeks].classList = 'harvest'
   }
   setPlanification(week) {
-    let path = document.location.pathname
-    let plant_id = parseInt(path.substring(path.lastIndexOf("/") + 1))
     let xhr = new XMLHttpRequest()
     let params = `planification[plant_id]=${this.plant}&planification[seed_week]=${week}`
 
@@ -86,7 +85,7 @@ class Grow {
           `${response.planification.harvest_week} (du ${response.planification.harvest_date[0]} au ${response.planification.harvest_date[1]})`)
       }
     }
-    xhr.send(params);
+    xhr.send(params)
   }
   planificationPopup(plant, from, to) {
     let plantShow = new PlantModal(document.getElementById('plantation-modal'))

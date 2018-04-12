@@ -21,6 +21,13 @@ class PlanificationsController < ApplicationController
     end
   end
 
+  # GET /planifications/1.json
+  def show
+    respond_to do |format|
+      format.json { render json: format_planification_response(@planification) }
+    end
+  end
+
   # PATCH/PUT /planifications/1.json
   def update
     respond_to do |format|

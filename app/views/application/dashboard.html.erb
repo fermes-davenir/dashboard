@@ -1,4 +1,4 @@
-<div class="container-fluid dashboard-farm">
+<div id="dashboard" class="container-fluid dashboard-farm">
 
   <div class="row">
       <h1>Mon Tableau de Bord</h1>
@@ -31,7 +31,7 @@
 
             <div class="dash-plant">
               <% @seed_planifications.each do |p| %>
-              <div class="row">
+              <div class="row planification" data-id="<%= p.id %>">
                 <div class="col-md-4">
                   <%= link_to p.plant do %>
                   <%= image_tag url_for(p.plant.image) if p.plant.image.attached? %>
@@ -51,7 +51,7 @@
             <h3>En cours de Pousse</h3>
             <div class="dash-plant">
               <% @growing_planifications.each do |p| %>
-              <div class="row">
+              <div class="row planification" data-id="<%= p.id %>">
                 <div class="col-md-4">
                   <%= link_to p.plant do %>
                   <%= image_tag url_for(p.plant.image) if p.plant.image.attached? %>
@@ -70,7 +70,7 @@
             <h3>A récolter</h3>
             <div class="dash-plant">
               <% @harvest_planifications.each do |p| %>
-              <div class="row">
+              <div class="row planification" data-id="<%= p.id %>">
                 <div class="col-md-4">
                   <%= link_to p.plant do %>
                   <%= image_tag url_for(p.plant.image) if p.plant.image.attached? %>
@@ -87,6 +87,24 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
 
+<div class="modal fade" id="dashboard-modal" tabindex="-1" role="dialog" aria-labelledby="dashboardPopupTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dashboardPopupTitle"></h5>
+        <button type="button" class="close close-action" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn_white close-action">fermer</button>
+        <button type="button" class="btn btn-danger delete-action">supprimer</button>
+      </div>
+    </div>
   </div>
 </div>

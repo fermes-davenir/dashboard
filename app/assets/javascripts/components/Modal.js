@@ -31,6 +31,11 @@ class Modal {
       })
     }
   }
+  fill(title, text) {
+    console.log(this.target)
+    this.target.getElementsByClassName('modal-body')[0].innerHTML = text
+    this.target.getElementsByTagName('h5')[0].innerHTML = title
+  }
 }
 
 export default Modal

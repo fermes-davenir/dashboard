@@ -6,3 +6,10 @@
 .modal-title {
   display: inline-block;
 }
+.modal.show {
+  opacity: 1;
+}
+.modal.fade .modal-dialog {
+  top: 50%;
+  transform: translateY(-50%);
+}
