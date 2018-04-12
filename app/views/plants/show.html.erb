@@ -24,31 +24,31 @@
             </div>
           <% end %>
         </div>
-        <div class="row calendar">
-          <table id="grow" class="growing-planning" data-plant="<%= "#{@plant.seed_from}-#{@plant.seed_to}" %>" data-harvest="<%= @plant.growth_time %>">
-            <% (0..@weeks_count/11).each do |i| %>
-              <tr>
-                <% (1..11).each do |j| %>
-                  <% week_number = i*11+j %>
-                  <% if week_number <= @weeks_count %>
-                    <td data-week="<%= week_number %>" <%= "data-seed" if week_number >= @plant.seed_from && week_number <= @plant.seed_to %>>
-                      <span>
-                        du <%= Date.commercial(2018, week_number, 1).strftime('%d/%m/%Y') %>
-                        au <%= Date.commercial(2018, week_number, 7).strftime('%d/%m/%Y') %>
-                        <% if week_number >= @plant.seed_from && week_number <= @plant.seed_to %>
-                          <b>Cliquez pour planter</b>
-                        <% end %>
-                      </span>
-                      <%= week_number %>
-                    </td>
-                  <% end %>
-                <% end %>
-              </tr>
-            <% end %>
-          </table>
-        </div>
       </div>
     </div>
+  </div>
+  <div class="calendar">
+    <table id="grow" class="growing-planning" data-plant="<%= "#{@plant.seed_from}-#{@plant.seed_to}" %>" data-harvest="<%= @plant.growth_time %>">
+      <% (0..@weeks_count/11).each do |i| %>
+        <tr>
+          <% (1..11).each do |j| %>
+            <% week_number = i*11+j %>
+            <% if week_number <= @weeks_count %>
+              <td data-week="<%= week_number %>" <%= "data-seed" if week_number >= @plant.seed_from && week_number <= @plant.seed_to %>>
+                <span>
+                  du <%= Date.commercial(2018, week_number, 1).strftime('%d/%m/%Y') %>
+                  au <%= Date.commercial(2018, week_number, 7).strftime('%d/%m/%Y') %>
+                  <% if week_number >= @plant.seed_from && week_number <= @plant.seed_to %>
+                    <b>Cliquez pour planter</b>
+                  <% end %>
+                </span>
+                <%= week_number %>
+              </td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>
 
