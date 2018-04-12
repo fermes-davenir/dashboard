@@ -5,7 +5,7 @@ class Planification < ApplicationRecord
   def harvest_week
     week = self.seed_week + self.plant.growth_time
     year_weeks = weeks_count(self.year)
-    if week / year_weeks > 1
+    if week.to_f / year_weeks.to_f > 1
       return week % year_weeks + 1
     else
       return week
