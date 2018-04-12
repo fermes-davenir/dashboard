@@ -1,0 +1,8 @@
+.modal-backdrop {
+  &.show {
+    opacity: .5;
+  }
+}
+.modal-title {
+  display: inline-block;
+}

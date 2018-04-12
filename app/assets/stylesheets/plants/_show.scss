@@ -1,4 +1,7 @@
 .plants-show {
+  .modal-backdrop.show {
+    opacity: .5;
+  }
   h1 {
     color: $dark-grey;
     text-align: left;
@@ -42,5 +45,12 @@
       background: $mint-green;
       clip-path: polygon(100% 0, 0 0, 100% 100%);
     }
+  }
+}
+#plantation-modal {
+  opacity: 1;
+  .modal-dialog-centered {
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
