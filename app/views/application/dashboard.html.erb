@@ -12,8 +12,9 @@
 
       <div class="col-lg-12">
 
-        <h2>Semaine <%= Time.current.strftime('%V').to_i %></h2>
-        <p class="days-interval"><strong>Du <%= Date.commercial(Date.today.year, Time.current.strftime('%V').to_i, 1).strftime("%d/%m/%Y").to_s %> au <%= Date.commercial(Date.today.year, Time.current.strftime('%V').to_i, 7).strftime("%d/%m/%Y").to_s %></strong></p><br>
+        <h2>Semaine <%= @week %><%= " (#{@year})" unless @year == Date.today.year %></h2>
+        <p><%= link_to "Previous", @prev_path %> | <%= link_to "Semaine actuelle", dashboard_path %> | <%= link_to "Next", @next_path %></p>
+        <p class="days-interval"><strong>Du <%= @start_week %> au <%= @end_week %></strong></p><br>
 
         <div class="wrapper">
 
@@ -21,13 +22,19 @@
             <h3>A planter</h3>
 
             <div class="dash-plant">
+              <% @seed_planifications.each do |p| %>
               <div class="row">
-                <div class="col-md-4"><%= image_tag "http://via.placeholder.com/50x50" %></div>
+                <div class="col-md-4">
+                  <%= link_to p.plant do %>
+                  <%= image_tag url_for(p.plant.image) if p.plant.image.attached? %>
+                  <% end %>
+                </div>
                 <div class="col-md-8">
-                  <h4>Plante 1</h4>
+                  <h4><%= p.plant.name %></h4>
                   <%= image_tag "icons/delete.svg", class: "delete-icon" %>
                 </div>
               </div>
+              <% end %>
             </div>
           </div>
 
@@ -35,34 +42,38 @@
           <div class="wrapper-card">
             <h3>En cours de Pousse</h3>
             <div class="dash-plant">
+              <% @growing_planifications.each do |p| %>
               <div class="row">
-                <div class="col-md-4"><%= image_tag "http://via.placeholder.com/50x50" %></div>
+                <div class="col-md-4">
+                  <%= link_to p.plant do %>
+                  <%= image_tag url_for(p.plant.image) if p.plant.image.attached? %>
+                  <% end %>
+                </div>
                 <div class="col-md-8">
-                  <h4>Plante 2</h4>
+                  <h4><%= p.plant.name %></h4>
                   <%= image_tag "icons/delete.svg", class: "delete-icon" %>
                 </div>
               </div>
+              <% end %>
             </div>
           </div>
 
           <div class="wrapper-card">
             <h3>A récolter</h3>
             <div class="dash-plant">
+              <% @harvest_planifications.each do |p| %>
               <div class="row">
-                <div class="col-md-4"><%= image_tag "http://via.placeholder.com/50x50" %></div>
+                <div class="col-md-4">
+                  <%= link_to p.plant do %>
+                  <%= image_tag url_for(p.plant.image) if p.plant.image.attached? %>
+                  <% end %>
+                </div>
                 <div class="col-md-8">
-                  <h4>Plante 3</h4>
+                  <h4><%= p.plant.name %></h4>
                   <%= image_tag "icons/delete.svg", class: "delete-icon" %>
                 </div>
               </div>
-
-              <div class="row">
-                <div class="col-md-4"><%= image_tag "http://via.placeholder.com/50x50" %></div>
-                <div class="col-md-8">
-                  <h4>Plante 4</h4>
-                  <%= image_tag "icons/delete.svg", class: "delete-icon" %>
-                </div>
-              </div>
+              <% end %>
             </div>
           </div>
         </div>

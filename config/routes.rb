@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :plants
   resources :planifications, only: [:create]
 
-  get '/dashboard/(:week)' => 'application#dashboard', as: :dashboard
+  get '/dashboard/(:week/(:year))' => 'application#dashboard', as: :dashboard
   get '/calendar' => 'application#calendar'
 
 end
