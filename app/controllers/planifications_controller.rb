@@ -11,7 +11,10 @@ class PlanificationsController < ApplicationController
 
     respond_to do |format|
       if @planification.save
-        format.json { render json: { status: :created } }
+        format.json { render json: {status: :created, planification: format_planification_response(@planification)} }
+        print "================"
+        print format_planification_response(@planification).to_json
+        print "================"
       else
         format.json { render json: @planification.errors, status: :unprocessable_entity }
       end
@@ -50,5 +53,20 @@ class PlanificationsController < ApplicationController
 
     def check_owner
       redirect_to root_path if @planification.user != current_user
+    end
+
+    def format_planification_response(planification)
+      plant = Plant.find(planification.plant_id)
+      return {
+        name: plant.name,
+        seed_week: planification.seed_week,
+        seed_date: [
+          Date.commercial(planification.year, planification.seed_week, 1).strftime('%d/%m/%Y'),
+          Date.commercial(planification.year, planification.seed_week, 7).strftime('%d/%m/%Y')],
+        harvest_week: planification.harvest_week,
+        harvest_date: [
+          Date.commercial(planification.harvest_year, planification.harvest_week, 1).strftime('%d/%m/%Y'),
+          Date.commercial(planification.harvest_year, planification.harvest_week, 7).strftime('%d/%m/%Y')]
+      }
     end
 end

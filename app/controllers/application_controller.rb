@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   # GET /dashboard
   def dashboard
-    @week = Time.current.strftime('%V').to_i
+    @week = Date.today.strftime('%V').to_i
     @week = params[:week].to_i if params[:week]
 
     @year = Date.today.year
@@ -18,36 +18,20 @@ class ApplicationController < ActionController::Base
     if @week == 1
       previous_year = @year - 1
       prev_year_last_week = weeks_count(previous_year)
-      if previous_year == Date.today.year
-        @prev_path = dashboard_path(week: prev_year_last_week)
-      else
-        @prev_path = dashboard_path(week: prev_year_last_week, year: previous_year)
-      end
+      @prev_path = (previous_year == Date.today.year && prev_year_last_week == Date.today.strftime('%V').to_i) ? dashboard_path : dashboard_path(year: previous_year, week: prev_year_last_week)
     else
       previous_week = @week - 1
-      if @year == Date.today.year
-        @prev_path = dashboard_path(week: previous_week)
-      else
-        @prev_path = dashboard_path(week: previous_week, year: @year)
-      end
+      @prev_path = (Date.today.year && previous_week == Date.today.strftime('%V').to_i) ? dashboard_path : dashboard_path(year: @year, week: previous_week)
     end
 
     # Generate link to next week
     curr_year_last_week = weeks_count(@year)
     if @week == curr_year_last_week
       next_year = @year + 1
-      if next_year == Date.today.year
-        @next_path = dashboard_path(week: 1)
-      else
-        @next_path = dashboard_path(week: 1, year: next_year)
-      end
+      @next_path = (next_year == Date.today.year && Date.today.strftime('%V').to_i == 1) ? dashboard_path : dashboard_path(year: next_year, week: 1)
     else
       next_week = @week + 1
-      if @year == Date.today.year
-        @next_path = dashboard_path(week: next_week)
-      else
-        @next_path = dashboard_path(week: next_week, year: @year)
-      end
+      @next_path = (@year == Date.today.year && next_week == Date.today.strftime('%V').to_i) ? dashboard_path : dashboard_path(year: @year, week: next_week)
     end
 
     begin

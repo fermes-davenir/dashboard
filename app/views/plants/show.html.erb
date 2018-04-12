@@ -1,4 +1,4 @@
-<div class="container plants-show">
+<div class="container plants-show" id="plant" data-id="<%= @plant.id %>">
   <div class="row cover">
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
@@ -62,10 +62,10 @@
         </button>
       </div>
       <div class="modal-body">
-        Une nouvelle plantation vient d'être ajoutée : <span data-plant></span>, du <span data-from></span> au <span data-to></span>
+        Une nouvelle plantation vient d'être ajoutée : <span data-plant></span>, de la semaine <span data-from></span> à la semaine <span data-to></span>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary close-action">Save changes</button>
+        <button type="button" class="btn btn_green close-action">fermer</button>
       </div>
     </div>
   </div>
