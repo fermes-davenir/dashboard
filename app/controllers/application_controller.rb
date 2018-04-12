@@ -30,6 +30,38 @@ class ApplicationController < ActionController::Base
     @my_planifications = current_user.planifications
     @current_grouped_planifications = group_planifications(@my_planifications, @week, @year)
 
+    first_month = Date.commercial(@year, @week, 1).month
+    month_counter = first_month
+    week_of_first_day_of_month = Date.new(@year, first_month, 1).strftime("%V").to_i
+
+    if Date.commercial(@year, week_of_first_day_of_month, 4).month == @month
+      first_week = week_of_first_day_of_month
+    else
+      first_week = week_of_first_day_of_month + 1
+      first_week = 1 if first_week > 51
+    end
+
+    cal_week = first_week
+    cal_month = first_month
+    cal_year = @year
+    @trim_calendar = {}
+
+    for i in 1..3 do
+      while Date.commercial(cal_year, cal_week, 4).month == cal_month do
+        @trim_calendar[cal_year] ||= {}
+        @trim_calendar[cal_year][cal_month] ||= {}
+        @trim_calendar[cal_year][cal_month][cal_week] ||= {}
+
+        grouped_plans = group_planifications(@my_planifications, cal_week, cal_year)
+        @trim_calendar[cal_year][cal_month][cal_week][:seed] = grouped_plans[:seed]
+        @trim_calendar[cal_year][cal_month][cal_week][:harvest] = grouped_plans[:harvest]
+
+        cal_week = Date.commercial(cal_year, cal_week, 1).next_week.cweek
+      end
+      cal_month = Date.new(cal_year, cal_month, 1).next_month.month
+      cal_year += 1 if cal_month == 1
+    end
+
   end
 
   # GET /calendar

@@ -15,5 +15,7 @@ module Dashboard
         ENV[key.to_s] = value
       end if File.exists?(env_file)
     end
+
+    config.i18n.available_locales = :en, :fr
   end
 end

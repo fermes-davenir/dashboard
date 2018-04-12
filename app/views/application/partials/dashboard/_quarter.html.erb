@@ -2,10 +2,14 @@
   <div class="container dashboard-quarter">
     <div class="col-lg-12">
       <div class="wrapper">
+        <% @trim_calendar.keys.each do |yk| %>
+          <% @trim_calendar[yk].keys.each do |mk| %>
+        <!-- EACH MONTH -->
         <div class="wrapper-card">
-          <h3>SEPTEMBRE</h3>
+          <h3><%= t(l(Date.new(yk, mk, 1), format: '%B'), locale: :fr) %></h3>
           <div class="white-box">
             <div class="container-fluid">
+              <% @trim_calendar[yk][mk].keys.each do |wk| %>
               <!-- EACH WEEK -->
               <div class="row flex">
                 <div class="col-sm-10">
@@ -14,90 +18,31 @@
                     <div class="row kanban">
                       <h4>A planter</h4>
                       <div class="container-fluid">
-                        <div class="row">IMAGE - LEGUME</div>
-                        <div class="row">IMAGE - LEGUME</div>
-                        <div class="row">IMAGE - LEGUME</div>
+                        <% @trim_calendar[yk][mk][wk][:seed].each do |p| %>
+                        <div class="row"><%= image_tag url_for(p.plant.image) if p.plant.image.attached? %>²²<%= p.plant.name %></div>
+                        <% end %>
                       </div>
                     </div>
                     <div class="row kanban">
                       <h4>A recolter</h4>
                       <div class="container-fluid">
-                        <div class="row">IMAGE - LEGUME</div>
+                        <% @trim_calendar[yk][mk][wk][:harvest].each do |p| %>
+                        <div class="row"><%= image_tag url_for(p.plant.image) if p.plant.image.attached? %><%= p.plant.name %></div>
+                        <% end %>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-2">
-                  <span class="week">15</span>
+                  <span class="week"><%= wk %></span>
                 </div>
               </div>
+              <% end %>
             </div>
           </div>
         </div>
-        <div class="wrapper-card">
-          <h3>OCTOBRE</h3>
-          <div class="white-box">
-            <div class="container-fluid">
-              <!-- EACH WEEK -->
-              <div class="row flex">
-                <div class="col-sm-10">
-                  <!-- EACH WEEK CATEGORY -->
-                  <div class="container-fluid">
-                    <div class="row kanban">
-                      <h4>A planter</h4>
-                      <div class="container-fluid">
-                        <div class="row">IMAGE - LEGUME</div>
-                        <div class="row">IMAGE - LEGUME</div>
-                        <div class="row">IMAGE - LEGUME</div>
-                      </div>
-                    </div>
-                    <div class="row kanban">
-                      <h4>A recolter</h4>
-                      <div class="container-fluid">
-                        <div class="row">IMAGE - LEGUME</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <span class="week">15</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="wrapper-card">
-          <h3>NOVEMBRE</h3>
-          <div class="white-box">
-            <div class="container-fluid">
-              <!-- EACH WEEK -->
-              <div class="row flex">
-                <div class="col-sm-10">
-                  <!-- EACH WEEK CATEGORY -->
-                  <div class="container-fluid">
-                    <div class="row kanban">
-                      <h4>A planter</h4>
-                      <div class="container-fluid">
-                        <div class="row">IMAGE - LEGUME</div>
-                        <div class="row">IMAGE - LEGUME</div>
-                        <div class="row">IMAGE - LEGUME</div>
-                      </div>
-                    </div>
-                    <div class="row kanban">
-                      <h4>A recolter</h4>
-                      <div class="container-fluid">
-                        <div class="row">IMAGE - LEGUME</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <span class="week">15</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
