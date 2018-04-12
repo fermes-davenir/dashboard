@@ -15,24 +15,9 @@ class ApplicationController < ActionController::Base
     @year = params[:year].to_i if params[:year]
 
     # Generate link to previous week
-    if @week == 1
-      previous_year = @year - 1
-      prev_year_last_week = weeks_count(previous_year)
-      @prev_path = (previous_year == Date.today.year && prev_year_last_week == Date.today.strftime('%V').to_i) ? dashboard_path : dashboard_path(year: previous_year, week: prev_year_last_week)
-    else
-      previous_week = @week - 1
-      @prev_path = (Date.today.year && previous_week == Date.today.strftime('%V').to_i) ? dashboard_path : dashboard_path(year: @year, week: previous_week)
-    end
-
+    @prev_path = get_previous_week_path(@week, @year)
     # Generate link to next week
-    curr_year_last_week = weeks_count(@year)
-    if @week == curr_year_last_week
-      next_year = @year + 1
-      @next_path = (next_year == Date.today.year && Date.today.strftime('%V').to_i == 1) ? dashboard_path : dashboard_path(year: next_year, week: 1)
-    else
-      next_week = @week + 1
-      @next_path = (@year == Date.today.year && next_week == Date.today.strftime('%V').to_i) ? dashboard_path : dashboard_path(year: @year, week: next_week)
-    end
+    @next_path = get_next_week_path(@week, @year)
 
     begin
       @start_week = Date.commercial(@year, @week, 1).strftime("%d/%m/%Y").to_s
@@ -43,25 +28,15 @@ class ApplicationController < ActionController::Base
     end
 
     @my_planifications = current_user.planifications
+    @current_grouped_planifications = group_planifications(@my_planifications, @week, @year)
 
-    @seed_planifications = @my_planifications.where(seed_week: @week, year: @year)
-
-    @harvest_planifications = @my_planifications.select { |p|
-      p.harvest_week == @week && p.harvest_year == @year
-    }
-
-    @growing_planifications = @my_planifications.select { |p|
-      if p.year == p.harvest_year
-        p.seed_week < @week && p.harvest_week > @week
-      else
-        (p.year == @year && p.seed_week < @week) || (p.harvest_year == @year && p.harvest_week > @week)
-      end
-    }
   end
 
   # GET /calendar
   def calendar
   end
+
+  private
 
   def weeks_count(year)
     last_day = Date.new(year).end_of_year
@@ -70,6 +45,56 @@ class ApplicationController < ActionController::Base
     else
       last_day.cweek
     end
+  end
+
+  def get_previous_week_path(week, year)
+    if week == 1
+      previous_year = year - 1
+      prev_year_last_week = weeks_count(previous_year)
+
+      prev_path = (previous_year == Date.today.year && prev_year_last_week == Date.today.strftime('%V').to_i) ? dashboard_path : dashboard_path(year: previous_year, week: prev_year_last_week)
+    else
+      previous_week = week - 1
+
+      prev_path = (Date.today.year && previous_week == Date.today.strftime('%V').to_i) ? dashboard_path : dashboard_path(year: year, week: previous_week)
+    end
+
+    return prev_path
+  end
+
+  def get_next_week_path(week, year)
+    curr_year_last_week = weeks_count(year)
+    if week == curr_year_last_week
+      next_year = year + 1
+
+      next_path = (next_year == Date.today.year && Date.today.strftime('%V').to_i == 1) ? dashboard_path : dashboard_path(year: next_year, week: 1)
+    else
+      next_week = week + 1
+
+      next_path = (year == Date.today.year && next_week == Date.today.strftime('%V').to_i) ? dashboard_path : dashboard_path(year: year, week: next_week)
+    end
+
+    return next_path
+  end
+
+  def group_planifications(planifications, week, year)
+    grouped_plans = {}
+
+    grouped_plans[:seed] = planifications.where(seed_week: week, year: year)
+
+    grouped_plans[:harvest] = planifications.select { |p|
+      p.harvest_week == week && p.harvest_year == year
+    }
+
+    grouped_plans[:growing] = planifications.select { |p|
+      if p.year == p.harvest_year
+        p.seed_week < week && p.harvest_week > week
+      else
+        (p.year == year && p.seed_week < week) || (p.harvest_year == year && p.harvest_week > week)
+      end
+    }
+
+    return grouped_plans
   end
 
 end

@@ -30,7 +30,7 @@
             <h3>A planter</h3>
 
             <div class="dash-plant">
-              <% @seed_planifications.each do |p| %>
+              <% @current_grouped_planifications[:seed].each do |p| %>
               <div class="row planification" data-id="<%= p.id %>">
                 <div class="col-md-4">
                   <%= link_to p.plant do %>
@@ -50,7 +50,7 @@
           <div class="wrapper-card">
             <h3>En cours de Pousse</h3>
             <div class="dash-plant">
-              <% @growing_planifications.each do |p| %>
+              <% @current_grouped_planifications[:growing].each do |p| %>
               <div class="row planification" data-id="<%= p.id %>">
                 <div class="col-md-4">
                   <%= link_to p.plant do %>
@@ -69,7 +69,7 @@
           <div class="wrapper-card">
             <h3>A récolter</h3>
             <div class="dash-plant">
-              <% @harvest_planifications.each do |p| %>
+              <% @current_grouped_planifications[:harvest].each do |p| %>
               <div class="row planification" data-id="<%= p.id %>">
                 <div class="col-md-4">
                   <%= link_to p.plant do %>
