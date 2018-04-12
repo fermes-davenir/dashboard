@@ -48,7 +48,11 @@
         font-size: 2em;
         text-align: right;
         font-weight: 900;
-        color: $light-grey
+        color: $light-grey;
+
+        &:hover {
+          color: $dark-grey;
+        }
       }
       h3 {
         color: $main-color;

@@ -11,38 +11,43 @@
             <div class="container-fluid">
               <% @trim_calendar[yk][mk].keys.each do |wk| %>
               <!-- EACH WEEK -->
-              <div class="row flex">
-                <div class="col-sm-10">
-                  <!-- EACH WEEK CATEGORY -->
-                  <div class="container-fluid">
-                    <div class="row kanban">
-                      <h4>A planter</h4>
-                      <div class="container-fluid">
-                        <% @trim_calendar[yk][mk][wk][:seed].each do |p| %>
-                        <div class="row plant">
-                          <%= image_tag url_for(p.plant.image), class: 'plant-image' if p.plant.image.attached? %>
-                          <span class="plant-name"><%= p.plant.name %></span>
+              <% week_path = (yk == Date.today.year && wk == Date.today.strftime("%V").to_i) ? dashboard_path : dashboard_path(week: wk, year: yk) %>
+                <div class="row flex">
+                  <div class="col-sm-10">
+                    <!-- EACH WEEK CATEGORY -->
+                    <div class="container-fluid">
+                      <div class="row kanban">
+                        <h4>A planter</h4>
+                        <div class="container-fluid">
+                          <% @trim_calendar[yk][mk][wk][:seed].each do |p| %>
+                          <div class="row plant">
+                            <%= link_to p.plant do %>
+                              <%= image_tag url_for(p.plant.image), class: 'plant-image' if p.plant.image.attached? %>
+                              <span class="plant-name"><%= p.plant.name %></span>
+                            <% end %>
+                          </div>
+                          <% end %>
                         </div>
-                        <% end %>
                       </div>
-                    </div>
-                    <div class="row kanban">
-                      <h4>A recolter</h4>
-                      <div class="container-fluid">
-                        <% @trim_calendar[yk][mk][wk][:harvest].each do |p| %>
-                        <div class="row plant">
-                          <%= image_tag url_for(p.plant.image), class: 'plant-image' if p.plant.image.attached? %>
-                          <span class="plant-name"><%= p.plant.name %></span>
+                      <div class="row kanban">
+                        <h4>A récolter</h4>
+                        <div class="container-fluid">
+                          <% @trim_calendar[yk][mk][wk][:harvest].each do |p| %>
+                          <div class="row plant">
+                            <%= link_to p.plant do %>
+                              <%= image_tag url_for(p.plant.image), class: 'plant-image' if p.plant.image.attached? %>
+                              <span class="plant-name"><%= p.plant.name %></span>
+                            <% end %>
+                          </div>
+                          <% end %>
                         </div>
-                        <% end %>
                       </div>
                     </div>
                   </div>
+                  <div class="col-sm-2">
+                    <%= link_to week_path do %><span class="week"><%= wk %></span><% end %>
+                  </div>
                 </div>
-                <div class="col-sm-2">
-                  <span class="week"><%= wk %></span>
-                </div>
-              </div>
               <% end %>
             </div>
           </div>
