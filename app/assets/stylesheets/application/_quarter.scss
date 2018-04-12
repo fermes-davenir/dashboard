@@ -29,6 +29,21 @@
       .kanban {
         margin-bottom: .75em;
       }
+      .plant {
+        display: flex;
+        align-items: center;
+        &-name {
+          text-transform: uppercase;
+          font-weight: 500;
+          letter-spacing: .5px;
+          color: $dark-grey;
+        }
+        &-image {
+          margin-right: .75em;
+          width: 16px;
+          height: 16px;
+        }
+      }
       .week {
         font-size: 2em;
         text-align: right;

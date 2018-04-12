@@ -19,7 +19,10 @@
                       <h4>A planter</h4>
                       <div class="container-fluid">
                         <% @trim_calendar[yk][mk][wk][:seed].each do |p| %>
-                        <div class="row"><%= image_tag url_for(p.plant.image) if p.plant.image.attached? %>²²<%= p.plant.name %></div>
+                        <div class="row plant">
+                          <%= image_tag url_for(p.plant.image), class: 'plant-image' if p.plant.image.attached? %>
+                          <span class="plant-name"><%= p.plant.name %></span>
+                        </div>
                         <% end %>
                       </div>
                     </div>
@@ -27,7 +30,10 @@
                       <h4>A recolter</h4>
                       <div class="container-fluid">
                         <% @trim_calendar[yk][mk][wk][:harvest].each do |p| %>
-                        <div class="row"><%= image_tag url_for(p.plant.image) if p.plant.image.attached? %><%= p.plant.name %></div>
+                        <div class="row plant">
+                          <%= image_tag url_for(p.plant.image), class: 'plant-image' if p.plant.image.attached? %>
+                          <span class="plant-name"><%= p.plant.name %></span>
+                        </div>
                         <% end %>
                       </div>
                     </div>
