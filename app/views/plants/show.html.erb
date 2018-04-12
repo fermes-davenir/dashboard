@@ -18,7 +18,7 @@
             <%= link_to 'EN SAVOIR PLUS', @plant.more_link, class: 'btn btn_green', target: '_blank' %>
           </div>
           <div class="col-sm-2"></div>
-          <% unless @plant.tip.nil? %>
+          <% unless @plant.tip == nil || @plant.tip == "" %>
             <div class="col-sm-4 tip">
               <%= @plant.tip %>
             </div>
