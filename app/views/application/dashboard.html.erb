@@ -1,110 +1,13 @@
 <div id="dashboard" class="container-fluid dashboard-farm">
-
   <div class="row">
       <h1>Mon Tableau de Bord</h1>
       <% if !notice.blank? %>
       <p id="notice"><%= notice %></p>
       <% end %>
   </div>
-
-  <div class="row">
-    <div class="container dashboard-content">
-
-      <div class="col-lg-12">
-
-        <div class="controls">
-          <%= link_to @prev_path, class: 'action previous' do %>
-            <span></span>
-          <% end %>
-          <h2>Semaine <%= @week %><%= "(#{@year})" unless @year == Date.today.year %></h2>
-          <%= link_to @next_path, class: 'action next' do %>
-            <span></span>
-          <% end %>
-        </div>
-        <%= link_to "Revenir à la semaine actuelle", dashboard_path, class: 'current_week' unless @week == Date.today.strftime('%V').to_i %>
-        <p class="days-interval"><strong>Du <%= @start_week %> au <%= @end_week %></strong></p><br>
-
-        <div class="wrapper">
-
-          <div class="wrapper-card">
-            <h3>A planter</h3>
-
-            <div class="dash-plant">
-              <% @current_grouped_planifications[:seed].each do |p| %>
-              <div class="row planification" data-id="<%= p.id %>">
-                <div class="col-md-4">
-                  <%= link_to p.plant do %>
-                  <%= image_tag url_for(p.plant.image) if p.plant.image.attached? %>
-                  <% end %>
-                </div>
-                <div class="col-md-8">
-                  <h4><%= p.plant.name %></h4>
-                  <%= image_tag "icons/delete.svg", class: "delete-icon" %>
-                </div>
-              </div>
-              <% end %>
-            </div>
-          </div>
-
-
-          <div class="wrapper-card">
-            <h3>En cours de Pousse</h3>
-            <div class="dash-plant">
-              <% @current_grouped_planifications[:growing].each do |p| %>
-              <div class="row planification" data-id="<%= p.id %>">
-                <div class="col-md-4">
-                  <%= link_to p.plant do %>
-                  <%= image_tag url_for(p.plant.image) if p.plant.image.attached? %>
-                  <% end %>
-                </div>
-                <div class="col-md-8">
-                  <h4><%= p.plant.name %></h4>
-                  <%= image_tag "icons/delete.svg", class: "delete-icon" %>
-                </div>
-              </div>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="wrapper-card">
-            <h3>A récolter</h3>
-            <div class="dash-plant">
-              <% @current_grouped_planifications[:harvest].each do |p| %>
-              <div class="row planification" data-id="<%= p.id %>">
-                <div class="col-md-4">
-                  <%= link_to p.plant do %>
-                  <%= image_tag url_for(p.plant.image) if p.plant.image.attached? %>
-                  <% end %>
-                </div>
-                <div class="col-md-8">
-                  <h4><%= p.plant.name %></h4>
-                  <%= image_tag "icons/delete.svg", class: "delete-icon" %>
-                </div>
-              </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'application/partials/dashboard/kanban' %>
+  <hr>
+  <%= render partial: 'application/partials/dashboard/quarter' %>
 </div>
 
-<div class="modal fade" id="dashboard-modal" tabindex="-1" role="dialog" aria-labelledby="dashboardPopupTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="dashboardPopupTitle"></h5>
-        <button type="button" class="close close-action" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn_white close-action">fermer</button>
-        <button type="button" class="btn btn-danger delete-action">supprimer</button>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: 'application/partials/dashboard/modal' %>

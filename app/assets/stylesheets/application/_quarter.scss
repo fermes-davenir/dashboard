@@ -1,0 +1,57 @@
+.dashboard-quarter {
+  .wrapper {
+    margin: 0 0 4em;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    .wrapper-card {
+      width: 32%;
+      min-width: 250px;
+      .white-box {
+        box-shadow: $boxshadow;
+        border-radius: 20px;
+        background-color: white;
+        padding: 1em 1.5em;
+        .flex {
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid $mint-green;
+          padding-bottom: 1em;
+          margin-bottom: 1em;
+          &:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+            margin-bottom: 0;
+          }
+        }
+      }
+      .kanban {
+        margin-bottom: .75em;
+      }
+      .week {
+        font-size: 2em;
+        text-align: right;
+        font-weight: 900;
+        color: $light-grey
+      }
+      h3 {
+        color: $main-color;
+        padding: 10px;
+        text-transform: uppercase;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 5px 0 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+      h4 {
+        color: $main-color;
+        text-transform: uppercase;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 5px 0 10px 0;
+      }
+    }
+  }
+}
