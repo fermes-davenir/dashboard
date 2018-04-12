@@ -1,6 +1,7 @@
 class Planification < ApplicationRecord
   belongs_to :user
   belongs_to :plant
+  include PlantsHelper
 
   def harvest_week
     week = self.seed_week + self.plant.growth_time
@@ -17,15 +18,6 @@ class Planification < ApplicationRecord
       return self.year + 1
     else
       return self.year
-    end
-  end
-
-  def weeks_count(year)
-    last_day = Date.new(year).end_of_year
-    if last_day.cweek == 1
-      last_day.prev_week.cweek
-    else
-      last_day.cweek
     end
   end
 end
