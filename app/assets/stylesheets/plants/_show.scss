@@ -18,6 +18,20 @@
   }
   .calendar {
     text-align: center;
+    td {
+      position: relative;
+    }
+    em {
+      position: absolute;
+      display: block;
+      height: 4px;
+      width: 4px;
+      border-radius: 100%;
+      background-color: $white;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 1px;
+    }
   }
   .tip {
     position: relative;

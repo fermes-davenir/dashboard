@@ -36,13 +36,16 @@
             <% if week_number <= @weeks_count %>
               <td data-week="<%= week_number %>" <%= "data-seed" if week_number >= @plant.seed_from && week_number <= @plant.seed_to %>>
                 <span>
-                  du <%= Date.commercial(2018, week_number, 1).strftime('%d/%m/%Y') %>
-                  au <%= Date.commercial(2018, week_number, 7).strftime('%d/%m/%Y') %>
+                  du <%= Date.commercial(Date.today.year, week_number, 1).strftime('%d/%m/%Y') %>
+                  au <%= Date.commercial(Date.today.year, week_number, 7).strftime('%d/%m/%Y') %>
                   <% if week_number >= @plant.seed_from && week_number <= @plant.seed_to %>
                     <b>Cliquez pour planter</b>
                   <% end %>
                 </span>
                 <%= week_number %>
+                <% if Planification.where(user_id: current_user.id, year: Date.today.year, seed_week: week_number, plant_id: @plant.id).count > 0 %>
+                  <em></em>
+                <% end %>
               </td>
             <% end %>
           <% end %>
